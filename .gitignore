@@ -1,3 +1,9 @@
+# Dipendenze e Build
+node_modules/
+dist/
+dist-ssr/
+*.local
+
 # Logs
 logs
 *.log
@@ -7,12 +13,13 @@ yarn-error.log*
 pnpm-debug.log*
 lerna-debug.log*
 
-node_modules
-dist
-dist-ssr
-*.local
+# SICUREZZA: File di ambiente (Firebase/Supabase)
+# Fondamentale: ignora TUTTI i file che iniziano con .env
+.env
+.env.*
+!.env.example 
 
-# Editor directories and files
+# Editor e Sistema
 .vscode/*
 !.vscode/extensions.json
 .idea
@@ -22,3 +29,6 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
+# Opzionale: se usi Windows e vedi file strani nelle cartelle immagini
+Thumbs.db

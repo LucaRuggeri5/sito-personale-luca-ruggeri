@@ -1,0 +1,30 @@
+/* App.css */
+
+.App {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh; /* Fa sì che il sito occupi almeno tutta l'altezza dello schermo */
+}
+
+main {
+  flex: 1; /* Spinge il footer verso il basso se la pagina ha poco contenuto */
+  padding: 2rem;
+  max-width: 1200px;
+  margin: 0 auto; /* Centra il contenuto orizzontalmente */
+  width: 100%;
+}
+
+/* Stile base per la Navbar */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+  background-color: white;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+/* Stile base per le sezioni */
+section {
+  padding: 4rem 0;
+}

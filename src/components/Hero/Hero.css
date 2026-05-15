@@ -1,0 +1,54 @@
+/* Hero.css */
+
+.hero-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center; /* Centra il contenuto verticalmente */
+  min-height: 80vh; /* Occupa l'80% dell'altezza dello schermo */
+  padding: 0 5%;
+}
+
+.hero-content {
+  max-width: 800px; /* Evita che il testo diventi troppo largo su schermi grandi */
+}
+
+.hero-greeting {
+  color: var(--primary-color); /* Usiamo il blu definito in index.css */
+  font-family: monospace; /* Un font stile "codice" per un tocco da dev */
+  font-size: 1.1rem;
+}
+
+.hero-title {
+  font-size: clamp(2.5rem, 8vw, 4.5rem); /* Dimensione fluida: si adatta allo schermo */
+  color: var(--text-color);
+  margin-top: 1rem;
+}
+
+.hero-subtitle {
+  font-size: clamp(1.8rem, 5vw, 3rem);
+  color: #64748b; /* Un grigio ardesia per dare meno importanza rispetto al nome */
+  margin-bottom: 1.5rem;
+}
+
+.hero-description {
+  font-size: 1.2rem;
+  max-width: 600px;
+  margin-bottom: 2.5rem;
+}
+
+.btn-primary {
+  display: inline-block; /* Serve per far funzionare padding e margini su un tag <a> */
+  background-color: transparent;
+  color: var(--primary-color);
+  border: 2px solid var(--primary-color);
+  padding: 1rem 2rem;
+  border-radius: 4px;
+  font-weight: bold;
+  transition: all 0.3s ease; /* Effetto morbido per l'hover */
+}
+
+/* Effetto al passaggio del mouse: invertiamo i colori */
+.btn-primary:hover {
+  background-color: var(--primary-color);
+  color: white;
+}

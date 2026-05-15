@@ -1,64 +1,76 @@
 import React, { useEffect, useState } from 'react';
-import {supabase} from '../../supabaseClient'
+import { supabase } from '../../supabaseClient';
 import './Projects.css';
 
 const Projects = () => {
-  // Prepariamo una "scatola" vuota (stato) dove metteremo i progetti quando arriveranno
-  const [projects, setProjects] = useState([]);
-  // Uno stato per capire se stiamo ancora aspettando la risposta dal database
+  const [dbProjects, setDbProjects] = useState([]);
   const [loading, setLoading] = useState(true);
 
-  // Questa funzione va a bussare alla porta di Supabase
   const fetchProjects = async () => {
     try {
-      setLoading(true); // Diciamo all'app di mostrare il caricamento
-      
-      // Chiediamo alla tabella 'projects' di darci tutto (*)
-      const { data, error } = await supabase
-        .from('projects')
-        .select('*');
-
-      if (error) throw error; // Se c'è un errore, saltiamo al blocco catch
-
-      setProjects(data); // Mettiamo i dati reali nella nostra scatola
+      setLoading(true);
+      const { data, error } = await supabase.from('projects').select('*');
+      if (error) throw error;
+      setDbProjects(data);
     } catch (error) {
-      console.error("Errore durante il recupero dei dati:", error.message);
+      console.error("Errore recupero dati:", error.message);
     } finally {
-      setLoading(false); // Finito il lavoro (sia nel bene che nel male)
+      setLoading(false);
     }
   };
 
-  // useEffect dice a React: "Appena il componente appare sullo schermo, fai questo"
   useEffect(() => {
     fetchProjects();
-  }, []); // Le parentesi quadre vuote significano: "fallo solo una volta"
+  }, []);
 
-  // Se i dati non sono ancora pronti, mostriamo un testo di cortesia
-  if (loading) {
-    return <section className="projects-container">Caricamento progetti...</section>;
-  }
+  // Progetti finti per testare il layout (appariranno dopo quelli del DB)
+  const placeholders = [
+    { id: 'p1', title: "Progetto Esempio 1", description: "Descrizione breve per testare l'allineamento della card.", tech: ["React", "Tailwind"], image_url: "" },
+    { id: 'p2', title: "Progetto Esempio 2", description: "Descrizione un po' più lunga per vedere come si comporta il testo quando occupa più righe all'interno della griglia.", tech: ["JavaScript", "Node.js"], image_url: "" },
+    { id: 'p3', title: "Progetto Esempio 3", description: "Test layout.", tech: ["HTML", "CSS"], image_url: "" },
+    { id: 'p4', title: "Progetto Esempio 4", description: "Test layout.", tech: ["Vite"], image_url: "" },
+    { id: 'p5', title: "Progetto Esempio 5", description: "Test layout.", tech: ["React"], image_url: "" },
+  ];
+
+  // Uniamo i progetti reali con i placeholder per arrivare a almeno 6, commentare quando si vogliono levare i placeholder
+  const allProjects = [...dbProjects, ...placeholders].slice(0, 6);
+  // Mostra solo cosa è presente nel database, levare il commento qui quando si vogliono far vedere solo i progetti
+  // const allProjects = dbProjects;
+
+  if (loading) return <section className="projects-container"><div className="loading">Caricamento progetti...</div></section>;
 
   return (
     <section id="progetti" className="projects-container">
       <h2 className="projects-title">I miei Progetti</h2>
-      
+
       <div className="projects-grid">
-        {/* Usiamo .map() non più sui dati finti, ma sulla variabile 'projects' dello stato */}
-        {projects.map((project) => (
+        {allProjects.map((project) => (
           <div key={project.id} className="project-card">
-            <h3>{project.title}</h3>
-            <p>{project.description}</p>
-            
-            <div className="project-tech">
-              {/* Controlliamo che tech esista, poi facciamo il ciclo */}
-              {project.tech && project.tech.map((tag, index) => (
-                <span key={index} className="tech-tag">{tag}</span>
-              ))}
+            <div className="project-image">
+              {project.image_url ? (
+                <img src={project.image_url} alt={project.title} />
+              ) : (
+                <div className="image-placeholder">
+                  <span>Screenshot in arrivo</span>
+                </div>
+              )}
             </div>
-            
-            <a href={project.link} target="_blank" rel="noreferrer" className="project-link">
-              Vedi progetto →
-            </a>
+
+            <div className="project-card-content">
+              <div className="project-info">
+                <h3>{project.title}</h3>
+                <p>{project.description}</p>
+                <div className="project-tech">
+                  {Array.isArray(project.tech) && project.tech.map((tag, index) => (
+                    <span key={index} className="tech-tag">{tag}</span>
+                  ))}
+                </div>
+              </div>
+
+              <a href={project.link || "#"} target="_blank" rel="noreferrer" className="project-link">
+                Vedi progetto <span>→</span>
+              </a>
+            </div>
           </div>
         ))}
       </div>

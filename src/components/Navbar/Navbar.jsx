@@ -11,7 +11,7 @@ const Navbar = () => {
 
             {/* I link di navigazione */}
             <ul className="navbar-links">
-                <li><a href="#home">Home</a></li>
+                <li><a href="#about">Chi Sono</a></li>
                 <li><a href="#progetti">Progetti</a></li>
                 <li><a href="#contatti">Contatti</a></li>
             </ul>

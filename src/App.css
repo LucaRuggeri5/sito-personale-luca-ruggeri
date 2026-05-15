@@ -28,3 +28,17 @@ main {
 section {
   padding: 4rem 0;
 }
+
+/* Stato iniziale: invisibile e leggermente spostato verso il basso */
+.reveal {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 0.8s ease-out;
+  transition-delay: 0.2s;
+}
+
+/* Stato finale: visibile e in posizione originale */
+.reveal-visible {
+  opacity: 1;
+  transform: translateY(0);
+}

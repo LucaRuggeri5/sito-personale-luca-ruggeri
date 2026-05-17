@@ -1,52 +1,62 @@
 /* Footer.css */
 
 .footer-container {
-  background-color: #1e293b; /* Un blu scuro quasi nero */
+  background-color: #0f172a; /* Aggiornato al blu-nero scurissimo per un contrasto perfetto con i testi */
   color: #f8fafc;
-  padding: 3rem 5% 1.5rem 5%;
-  margin-top: 4rem; /* Distanza dall'ultimo componente */
+  padding: 4rem 5% 2rem 5%;
+  margin-top: 5rem; /* Aumentato leggermente lo stacco per dare respiro a fine pagina */
 }
 
 .footer-content {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  flex-wrap: wrap; /* Utile per i dispositivi mobili */
+  flex-wrap: wrap;
   gap: 2rem;
   max-width: 1200px;
   margin: 0 auto;
   padding-bottom: 2rem;
-  border-bottom: 1px solid #334155;
+  border-bottom: 1px solid #1e293b; /* Linea divisoria più scura e sottile */
 }
 
 .footer-info h3 {
-  color: white;
+  color: #ffffff;
+  font-size: 1.25rem;
+  font-weight: 700;
   margin-bottom: 0.5rem;
+  letter-spacing: -0.5px;
 }
 
 .footer-info p {
-  color: #94a3b8;
-  font-size: 0.9rem;
+  color: #94a3b8; /* Grigio chiaro per massima leggibilità su sfondo scuro */
+  font-size: 0.92rem;
+  font-weight: 500;
 }
 
 .footer-socials {
   display: flex;
-  gap: 1.5rem;
+  gap: 2rem; /* Leggermente aumentato lo spazio per agevolare il click da mobile */
 }
 
 .footer-socials a {
   color: #cbd5e1;
-  font-size: 1rem;
-  transition: color 0.3s ease;
+  font-size: 0.95rem;
+  font-weight: 600;
+  text-decoration: none;
+  transition: color 0.25s ease;
 }
 
+/* FIX CONTRASTO HOVER: 
+   Sfondando su sfondo scuro, usiamo il colore azzurro chiaro (--accent-color) 
+   o un bianco puro per rendere il link visibile quando ci si passa sopra */
 .footer-socials a:hover {
-  color: var(--primary-color);
+  color: #61dafb; /* Un azzurro brillante (stile React) perfetto per staccare sul nero */
 }
 
 .footer-bottom {
   text-align: center;
-  padding-top: 1.5rem;
-  font-size: 0.8rem;
+  padding-top: 2rem;
+  font-size: 0.85rem;
   color: #64748b;
+  font-weight: 500;
 }

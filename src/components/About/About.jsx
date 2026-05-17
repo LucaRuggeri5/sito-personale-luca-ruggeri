@@ -1,13 +1,36 @@
 import React from 'react';
 import './About.css';
 
+// Importiamo le icone SVG dalla cartella degli assets
+import htmlIcon from '../../assets/icons/html.svg';
+import cssIcon from '../../assets/icons/css.svg';
+import jsIcon from '../../assets/icons/javascript.svg';
+import reactIcon from '../../assets/icons/react.svg';
+import gitIcon from '../../assets/icons/git.svg';
+import viteIcon from '../../assets/icons/vite.svg';
+import nodeIcon from '../../assets/icons/nodejs.svg';
+import postgresIcon from '../../assets/icons/postgresql.svg';
+import mysqlIcon from '../../assets/icons/mysql.svg';
+import expressIcon from '../../assets/icons/express.svg'
+
 const About = () => {
-  const skills = ["React", "JavaScript (ES6+)", "CSS3 & HTML5", "PostgreSQL", "Supabase", "Git & GitHub", "Vite"];
+  const skills = [
+    { name: "HTML5", icon: htmlIcon },
+    { name: "CSS3", icon: cssIcon },
+    { name: "JavaScript", icon: jsIcon },
+    { name: "React", icon: reactIcon },
+    { name: "Git", icon: gitIcon },
+    { name: "Vite", icon: viteIcon },
+    { name: "Node.js", icon: nodeIcon },
+    { name: "Express", icon: expressIcon },
+    { name: "PostgreSQL", icon: postgresIcon },
+    { name: "MySQL", icon: mysqlIcon }
+  ];
 
   return (
     <section id="about" className="about-container">
       <div className="about-content">
-        {/* Colonna Sinistra: Testo su di te */}
+        
         <div className="about-text">
           <h2 className="section-title">Chi Sono</h2>
           <p>
@@ -17,19 +40,23 @@ const About = () => {
           <p>
             Il mio obiettivo è scrivere codice pulito, scalabile e facile da mantenere, 
             senza mai dimenticare l'importanza dell'esperienza utente (UX). 
-            Quando non sono davanti allo schermo, mi piace seguire il calcio e tenermi aggiornato sulle ultime tecnologie.
+            Quando non sono davanti sullo schermo, mi piace seguire il calcio e tenermi aggiornato sulle ultime tecnologie.
           </p>
         </div>
 
-        {/* Colonna Destra: Le tue competenze */}
         <div className="about-skills">
           <h3>Le mie Skill</h3>
           <ul className="skills-list">
             {skills.map((skill, index) => (
-              <li key={index} className="skill-item">{skill}</li>
+              <li key={index} className="skill-item">
+                {/* Usiamo un normale tag img per caricare l'SVG importato */}
+                <img src={skill.icon} alt={skill.name} className="skill-icon" />
+                <span className="skill-name">{skill.name}</span>
+              </li>
             ))}
           </ul>
         </div>
+
       </div>
     </section>
   );

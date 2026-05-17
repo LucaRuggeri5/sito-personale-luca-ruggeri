@@ -3,52 +3,79 @@
 .hero-container {
   display: flex;
   flex-direction: column;
-  justify-content: center; /* Centra il contenuto verticalmente */
-  min-height: 80vh; /* Occupa l'80% dell'altezza dello schermo */
+  justify-content: center;
+  /* Calcoliamo l'altezza togliendo lo spazio stimato della navbar fissa 
+     per evitare scroll innaturali appena si apre il sito */
+  min-height: calc(85vh - 70px); 
   padding: 0 5%;
+  max-width: 1200px;
+  margin: 0 auto;
 }
 
 .hero-content {
-  max-width: 800px; /* Evita che il testo diventi troppo largo su schermi grandi */
-}
-
-.hero-greeting {
-  color: var(--primary-color); /* Usiamo il blu definito in index.css */
-  font-family: monospace; /* Un font stile "codice" per un tocco da dev */
-  font-size: 1.1rem;
+  max-width: 800px;
+  /* Una leggera animazione iniziale nativa quando la pagina si carica */
+  animation: fadeInHero 1s ease-out;
 }
 
 .hero-title {
-  font-size: clamp(2.5rem, 8vw, 4.5rem); /* Dimensione fluida: si adatta allo schermo */
+  font-size: clamp(2.5rem, 7vw, 4.5rem);
   color: var(--text-color);
-  margin-top: 1rem;
+  font-weight: 850; /* Testo più bold di forte impatto visivo */
+  letter-spacing: -2px; /* Stringiamo le lettere per un look tipico dei siti tech moderni */
+  margin-top: 0.8rem;
+  margin-bottom: 0.2rem;
 }
 
 .hero-subtitle {
   font-size: clamp(1.8rem, 5vw, 3rem);
-  color: #64748b; /* Un grigio ardesia per dare meno importanza rispetto al nome */
+  color: #64748b; /* Grigio ardesia coordinato */
+  font-weight: 700;
+  letter-spacing: -1px;
   margin-bottom: 1.5rem;
 }
 
 .hero-description {
-  font-size: 1.2rem;
-  max-width: 600px;
-  margin-bottom: 2.5rem;
+  color: #475569; /* Colore più morbido rispetto al nero puro, riposante per gli occhi */
+  font-size: clamp(1rem, 3vw, 1.15rem);
+  line-height: 1.7;
+  max-width: 580px;
+  margin-bottom: 3rem;
 }
 
+.hero-description strong {
+  color: var(--primary-color); /* Evidenzia React con il tuo colore primario */
+}
+
+/* BOTTONE HERO PRINCIPALE */
 .btn-primary {
-  display: inline-block; /* Serve per far funzionare padding e margini su un tag <a> */
+  display: inline-block;
   background-color: transparent;
   color: var(--primary-color);
   border: 2px solid var(--primary-color);
-  padding: 1rem 2rem;
-  border-radius: 4px;
-  font-weight: bold;
-  transition: all 0.3s ease; /* Effetto morbido per l'hover */
+  padding: 0.9rem 2rem;
+  border-radius: 12px; /* Arrotondato coerente con le card e la navbar */
+  font-weight: 700;
+  font-size: 0.95rem;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 4px 6px -1px rgba(37, 99, 235, 0.05);
 }
 
-/* Effetto al passaggio del mouse: invertiamo i colori */
 .btn-primary:hover {
   background-color: var(--primary-color);
   color: white;
+  transform: translateY(-2px); /* Effetto levitazione coordinato */
+  box-shadow: 0 10px 20px rgba(37, 99, 235, 0.15);
+}
+
+/* Animazione di ingresso per dare l'effetto "caricamento fluido" immediato */
+@keyframes fadeInHero {
+  from {
+    opacity: 0;
+    transform: translateY(15px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }

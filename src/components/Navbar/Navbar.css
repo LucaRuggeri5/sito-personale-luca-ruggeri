@@ -4,20 +4,20 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 1.2rem 5%; /* Leggermente aumentata l'altezza per dare più respiro */
-  background-color: rgba(255, 255, 255, 0.95); /* Effetto leggermente trasparente di tendenza */
-  backdrop-filter: blur(8px); /* Sfoca lo sfondo sotto la navbar mentre si scrolla */
+  padding: 1.2rem 5%;
+  background-color: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(8px);
   border-bottom: 1px solid #e2e8f0;
   position: sticky;
   top: 0;
   z-index: 1000;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.02); /* Ombra più morbida e moderna */
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.02);
 }
 
 .navbar-logo a {
   font-size: 1.4rem;
-  font-weight: 800; /* Più marcato per dare identità al brand */
-  color: #0f172a; /* Colore scuro neutro, evita che il logo sparisca se è dello stesso colore dei bottoni */
+  font-weight: 800;
+  color: #0f172a;
   text-decoration: none;
   letter-spacing: -0.5px;
 }
@@ -25,14 +25,14 @@
 .navbar-links {
   display: flex;
   gap: 2.5rem;
-  list-style: none; /* Rimuove i pallini di default della lista */
+  list-style: none;
   margin: 0;
   padding: 0;
 }
 
 .navbar-links a {
   text-decoration: none;
-  color: #475569; /* Grigio scuro leggibile */
+  color: #475569;
   font-weight: 600;
   font-size: 0.95rem;
   transition: color 0.25s ease;
@@ -42,14 +42,13 @@
   color: var(--primary-color);
 }
 
-/* Stilizzazione del link/bottone CV */
 .cv-button {
   display: inline-block;
   background-color: var(--primary-color);
   color: white;
   padding: 0.6rem 1.4rem;
   text-decoration: none;
-  border-radius: 10px; /* Angoli più morbidi in linea con le nuove card dei progetti */
+  border-radius: 10px;
   font-weight: 700;
   font-size: 0.9rem;
   transition: all 0.3s ease;
@@ -57,6 +56,6 @@
 
 .cv-button:hover {
   background-color: var(--accent-color);
-  transform: translateY(-1px); /* Piccolo effetto micro-interazione all'hover */
+  transform: translateY(-1px);
   box-shadow: 0 4px 12px rgba(37, 99, 235, 0.2);
 }

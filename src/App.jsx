@@ -17,12 +17,11 @@ const App = () => {
     <div className="App">
       <Navbar />
       
-      {/* Contenitore principale semantico per la SEO e l'accessibilità */}
       <main>
         <Hero />
-        <div className="reveal"><About /></div>
-        <div className="reveal"><Projects /></div>
-        <div className="reveal"><Contact /></div>
+        <div className="reveal" id="about"><About /></div>
+        <div className="reveal" id="progetti"><Projects /></div>
+        <div className="reveal" id="contatti"><Contact /></div>
       </main>
       
       <Footer />

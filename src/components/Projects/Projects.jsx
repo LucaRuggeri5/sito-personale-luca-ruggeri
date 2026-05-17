@@ -23,7 +23,6 @@ const Projects = () => {
     fetchProjects();
   }, []);
 
-  // Progetti finti per testare il layout (appariranno dopo quelli del DB)
   const placeholders = [
     { id: 'p1', title: "Progetto Esempio 1", description: "Descrizione breve per testare l'allineamento della card.", tech: ["React", "Tailwind"], image_url: "" },
     { id: 'p2', title: "Progetto Esempio 2", description: "Descrizione un po' più lunga per vedere come si comporta il testo quando occupa più righe all'interno della griglia.", tech: ["JavaScript", "Node.js"], image_url: "" },
@@ -32,12 +31,15 @@ const Projects = () => {
     { id: 'p5', title: "Progetto Esempio 5", description: "Test layout.", tech: ["React"], image_url: "" },
   ];
 
-  // Uniamo i progetti reali con i placeholder per arrivare a almeno 6, commentare quando si vogliono levare i placeholder
   const allProjects = [...dbProjects, ...placeholders].slice(0, 6);
-  // Mostra solo cosa è presente nel database, levare il commento qui quando si vogliono far vedere solo i progetti
-  // const allProjects = dbProjects;
 
-  if (loading) return <section className="projects-container"><div className="loading">Caricamento progetti...</div></section>;
+  if (loading) {
+    return (
+      <section className="projects-container">
+        <div className="loading">Caricamento progetti...</div>
+      </section>
+    );
+  }
 
   return (
     <section id="progetti" className="projects-container">
@@ -46,6 +48,7 @@ const Projects = () => {
       <div className="projects-grid">
         {allProjects.map((project) => (
           <div key={project.id} className="project-card">
+            
             <div className="project-image">
               {project.image_url ? (
                 <img src={project.image_url} alt={project.title} />
@@ -59,7 +62,8 @@ const Projects = () => {
             <div className="project-card-content">
               <div className="project-info">
                 <h3>{project.title}</h3>
-                <p>{project.description}</p>
+                <p className="project-description">{project.description}</p>
+                
                 <div className="project-tech">
                   {Array.isArray(project.tech) && project.tech.map((tag, index) => (
                     <span key={index} className="tech-tag">{tag}</span>
@@ -71,6 +75,7 @@ const Projects = () => {
                 Vedi progetto <span>→</span>
               </a>
             </div>
+
           </div>
         ))}
       </div>

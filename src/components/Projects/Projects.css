@@ -17,8 +17,7 @@
 
 .projects-grid {
   display: grid;
-  /* Griglia flessibile che non rompe mai il layout */
-  grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); /* Ottimizzato il minimo per evitare overflow su schermi medi */
   gap: 30px;
 }
 
@@ -29,7 +28,7 @@
   display: flex;
   flex-direction: column;
   overflow: hidden;
-  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.4s ease, border-color 0.4s ease;
   box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
 }
 
@@ -39,24 +38,28 @@
   border-color: #cbd5e1;
 }
 
-/* FIX IMMAGINE: Più alta e allineata in alto */
+/* FIX APPARENZA IMMAGINE COMPLETAMENTE VISIBILE */
 .project-image {
   width: 100%;
-  height: 250px; /* Aumentata un po' l'altezza */
-  background-color: #f8fafc;
+  height: 220px;
+  background-color: #f8fafc; /* Sfondo neutro chiaro che riempie le zone vuote del formato immagine */
   overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 12px; /* Crea un elegante effetto cornice salvaguardando lo screenshot */
+  border-bottom: 1px solid #f1f5f9;
 }
 
 .project-image img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  object-position: top; /* MOSTRA LA PARTE SUPERIORE DEL SITO (Navbar/Hero) */
-  transition: transform 0.8s ease;
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain; /* MOSTRA L'IMMAGINE INTERA SENZA ALCUN TAGLIO CORRETTO */
+  transition: transform 0.4s ease;
 }
 
 .project-card:hover .project-image img {
-  transform: scale(1.05);
+  transform: scale(1.03); /* Micro zoom elegante che non rompe il formato contain */
 }
 
 .project-card-content {
@@ -64,26 +67,26 @@
   flex: 1;
   display: flex;
   flex-direction: column;
-  justify-content: space-between; /* Spinge il link sempre in fondo */
+  justify-content: space-between; /* Spinge la CTA del link sempre sul fondo */
 }
 
 .project-card h3 {
-  font-size: 1.5rem;
+  font-size: 1.4rem;
   margin-bottom: 12px;
   color: #1e293b;
   font-weight: 700;
 }
 
-.project-card p {
+/* FIX TESTO: Rimosse righe gialle VS Code. 
+   Usiamo un'altezza massima e la proprietà overflow pulita standard */
+.project-description {
   color: #64748b;
   font-size: 0.95rem;
   line-height: 1.6;
   margin-bottom: 20px;
-  /* Limita il testo a 3 righe per mantenere le card simmetriche */
-  display: -webkit-box;
-  -webkit-line-clamp: 3;
-  -webkit-box-orient: vertical;
+  height: 4.8em; /* Corrisponde esattamente a 3 righe di testo (1.6 di line-height * 3) */
   overflow: hidden;
+  text-overflow: ellipsis; /* Aggiunge i tre puntini se il testo straborda in modo standard */
 }
 
 .project-tech {
@@ -98,23 +101,24 @@
   color: #334155;
   padding: 4px 12px;
   border-radius: 100px;
-  font-size: 0.7rem;
+  font-size: 0.72rem;
   font-weight: 600;
   border: 1px solid #e2e8f0;
 }
 
 .project-link {
-  color: #2563eb;
+  color: var(--primary-color);
   text-decoration: none;
   font-weight: 700;
-  font-size: 0.9rem;
+  font-size: 0.92rem;
   display: flex;
   align-items: center;
   gap: 5px;
+  align-self: flex-start; /* Evita che l'intera riga sia cliccabile a vuoto */
 }
 
 .project-link span {
-  transition: transform 0.2s;
+  transition: transform 0.2s ease;
 }
 
 .project-link:hover span {
@@ -125,29 +129,29 @@
   text-align: center;
   font-size: 1.2rem;
   color: #64748b;
+  padding: 100px 0;
 }
 
 .image-placeholder {
   width: 100%;
   height: 100%;
   background: #f1f5f9;
+  border-radius: 12px;
   display: flex;
   align-items: center;
   justify-content: center;
   color: #94a3b8;
+  font-weight: 500;
+  font-size: 0.9rem;
 }
 
-/* Ritardo per le card dei progetti quando appaiono */
-.project-card:nth-child(1) { transition-delay: 0.1s; }
-.project-card:nth-child(2) { transition-delay: 0.2s; }
-.project-card:nth-child(3) { transition-delay: 0.3s; }
-.project-card:nth-child(4) { transition-delay: 0.4s; }
-.project-card:nth-child(5) { transition-delay: 0.5s; }
-.project-card:nth-child(6) { transition-delay: 0.6s; }
+/* Rimossi i vecchi transition-delay sulle card che potevano generare attriti asincroni all'avvio */
 
-/* Mobile check */
 @media (max-width: 480px) {
   .projects-grid {
     grid-template-columns: 1fr;
+  }
+  .project-image {
+    height: 180px; /* Ridotto leggermente per i telefoni piccoli */
   }
 }

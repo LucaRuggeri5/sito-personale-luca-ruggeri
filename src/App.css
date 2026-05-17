@@ -1,43 +1,42 @@
 /* App.css */
 
+/* Reset base e variabili globali (se non le hai in index.css, lasciale qui) */
+:root {
+  --primary-color: #2563eb;
+  --accent-color: #3b82f6;
+  --text-color: #0f172a;
+}
+
 .App {
   display: flex;
   flex-direction: column;
-  min-height: 100vh; /* Fa sì che il sito occupi almeno tutta l'altezza dello schermo */
+  min-height: 100vh; /* Il footer rimarrà sempre in fondo alla pagina */
 }
 
 main {
-  flex: 1; /* Spinge il footer verso il basso se la pagina ha poco contenuto */
-  padding: 2rem;
-  max-width: 1200px;
-  margin: 0 auto; /* Centra il contenuto orizzontalmente */
+  flex: 1; 
   width: 100%;
+  /* Rimosso max-width e padding per lasciare che siano i singoli componenti 
+     a gestire la propria larghezza massima e i propri spazi interni */
 }
 
-/* Stile base per la Navbar */
-.navbar {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 1rem 2rem;
-  background-color: white;
-  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-}
-
-/* Stile base per le sezioni */
+/* Regole globali per le sezioni */
 section {
-  padding: 4rem 0;
+  width: 100%;
+  box-sizing: border-box;
 }
 
-/* Stato iniziale: invisibile e leggermente spostato verso il basso */
+/* --- ANIMAZIONI SCROLL REVEAL --- */
+
+/* Stato iniziale: invisibile e abbassato */
 .reveal {
   opacity: 0;
   transform: translateY(30px);
-  transition: all 0.8s ease-out;
-  transition-delay: 0.2s;
+  transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1); /* Movimento più fluido rispetto a ease-out */
+  will-change: opacity, transform; /* Ottimizza le prestazioni del browser durante l'animazione */
 }
 
-/* Stato finale: visibile e in posizione originale */
+/* Stato finale: visibile e centrato */
 .reveal-visible {
   opacity: 1;
   transform: translateY(0);

@@ -7,15 +7,6 @@
   box-sizing: border-box; /* Serve a calcolare bene le larghezze con padding/border */
 }
 
-:root {
-  /* Definiamo delle variabili per i colori: così se vogliamo cambiare il blu, 
-     lo facciamo qui una volta sola */
-  --primary-color: #2563eb;
-  --bg-color: #f8fafc;
-  --text-color: #1e293b;
-  --accent-color: #6366f1;
-}
-
 body {
   font-family: 'Inter', system-ui, -apple-system, sans-serif;
   background-color: var(--bg-color);
@@ -26,3 +17,8 @@ body {
 /* Togliamo i pallini dalle liste e i sottolineati dai link */
 ul { list-style: none; }
 a { text-decoration: none; color: inherit; }
+
+/* Scorrimento fluido al click */
+html {
+  scroll-behavior: smooth;
+}

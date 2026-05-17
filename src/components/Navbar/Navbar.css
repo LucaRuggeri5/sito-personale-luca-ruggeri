@@ -2,47 +2,61 @@
 
 .navbar-container {
   display: flex;
-  justify-content: space-between; /* Spinge logo, link e bottone ai tre estremi */
+  justify-content: space-between;
   align-items: center;
-  padding: 1rem 5%; /* 5% di padding laterale per non toccare i bordi dello schermo */
-  background-color: #ffffff;
-  border-bottom: 1px solid #e2e8f0; /* Una linea sottile grigia per separare la nav dal resto */
-  position: sticky; /* Rimane fissa in alto mentre scrolli */
+  padding: 1.2rem 5%; /* Leggermente aumentata l'altezza per dare più respiro */
+  background-color: rgba(255, 255, 255, 0.95); /* Effetto leggermente trasparente di tendenza */
+  backdrop-filter: blur(8px); /* Sfoca lo sfondo sotto la navbar mentre si scrolla */
+  border-bottom: 1px solid #e2e8f0;
+  position: sticky;
   top: 0;
-  z-index: 1000; /* Assicura che stia sopra a tutti gli altri elementi */
+  z-index: 1000;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.02); /* Ombra più morbida e moderna */
 }
 
 .navbar-logo a {
-  font-size: 1.5rem;
-  font-weight: bold;
-  color: var(--primary-color); /* Usiamo la variabile che abbiamo creato in index.css */
+  font-size: 1.4rem;
+  font-weight: 800; /* Più marcato per dare identità al brand */
+  color: #0f172a; /* Colore scuro neutro, evita che il logo sparisca se è dello stesso colore dei bottoni */
+  text-decoration: none;
+  letter-spacing: -0.5px;
 }
 
 .navbar-links {
   display: flex;
-  gap: 2rem; /* Crea spazio uniforme tra i link */
+  gap: 2.5rem;
+  list-style: none; /* Rimuove i pallini di default della lista */
+  margin: 0;
+  padding: 0;
 }
 
 .navbar-links a {
-  font-weight: 500;
-  transition: color 0.3s; /* Effetto morbido quando passi sopra con il mouse */
+  text-decoration: none;
+  color: #475569; /* Grigio scuro leggibile */
+  font-weight: 600;
+  font-size: 0.95rem;
+  transition: color 0.25s ease;
 }
 
 .navbar-links a:hover {
   color: var(--primary-color);
 }
 
+/* Stilizzazione del link/bottone CV */
 .cv-button {
+  display: inline-block;
   background-color: var(--primary-color);
   color: white;
-  padding: 0.6rem 1.2rem;
-  border: none;
-  border-radius: 8px;
-  cursor: pointer;
-  font-weight: 600;
-  transition: background 0.3s;
+  padding: 0.6rem 1.4rem;
+  text-decoration: none;
+  border-radius: 10px; /* Angoli più morbidi in linea con le nuove card dei progetti */
+  font-weight: 700;
+  font-size: 0.9rem;
+  transition: all 0.3s ease;
 }
 
 .cv-button:hover {
   background-color: var(--accent-color);
+  transform: translateY(-1px); /* Piccolo effetto micro-interazione all'hover */
+  box-shadow: 0 4px 12px rgba(37, 99, 235, 0.2);
 }

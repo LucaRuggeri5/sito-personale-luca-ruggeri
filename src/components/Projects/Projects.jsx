@@ -5,6 +5,8 @@ import './Projects.css';
 const Projects = () => {
   const [dbProjects, setDbProjects] = useState([]);
   const [loading, setLoading] = useState(true);
+  // Stato per gestire l'apertura/chiusura della tendina dei progetti extra
+  const [isExpanded, setIsExpanded] = useState(false);
 
   const fetchProjects = async () => {
     try {
@@ -31,7 +33,11 @@ const Projects = () => {
     { id: 'p5', title: "Progetto Esempio 5", description: "Test layout.", tech: ["React"], image_url: "" },
   ];
 
+  // Uniamo i progetti reali con i placeholder e limitiamo a un massimo di 6 totali
   const allProjects = [...dbProjects, ...placeholders].slice(0, 6);
+
+  // Calcoliamo i progetti da renderizzare: se è espanso li mostriamo tutti, altrimenti solo i primi 2
+  const visibleProjects = isExpanded ? allProjects : allProjects.slice(0, 2);
 
   if (loading) {
     return (
@@ -46,7 +52,7 @@ const Projects = () => {
       <h2 className="projects-title">I miei Progetti</h2>
 
       <div className="projects-grid">
-        {allProjects.map((project) => (
+        {visibleProjects.map((project) => (
           <div key={project.id} className="project-card">
             
             <div className="project-image">
@@ -79,6 +85,19 @@ const Projects = () => {
           </div>
         ))}
       </div>
+
+      {/* Il pulsante appare solo se ci sono effettivamente più di 2 progetti totali */}
+      {allProjects.length > 2 && (
+        <div className="projects-action-wrapper">
+          <button 
+            className={`btn-toggle-projects ${isExpanded ? 'active' : ''}`}
+            onClick={() => setIsExpanded(!isExpanded)}
+          >
+            {isExpanded ? 'Mostra meno' : 'Mostra altri progetti'}
+            <span className="btn-toggle-arrow">↓</span>
+          </button>
+        </div>
+      )}
     </section>
   );
 };

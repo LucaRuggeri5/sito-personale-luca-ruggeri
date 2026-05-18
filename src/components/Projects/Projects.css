@@ -36,6 +36,8 @@
   overflow: hidden;
   transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.4s ease, border-color 0.4s ease;
   box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+  /* Animazione di entrata quando appaiono i nuovi progetti */
+  animation: slideInUp 0.5s cubic-bezier(0.4, 0, 0.2, 1) both;
 }
 
 .project-card:hover {
@@ -136,7 +138,51 @@
 }
 
 /* ===========================================================
-   STATI ASINCRONI (LOADING & PLACEHOLDERS)
+   PULSANTE DI MOSTRA ALTRI / TENDINA DINAMICA
+   =========================================================== */
+
+.projects-action-wrapper {
+  display: flex;
+  justify-content: center;
+  margin-top: 50px;
+}
+
+.btn-toggle-projects {
+  background-color: transparent;
+  color: var(--primary-color);
+  border: 2px solid var(--primary-color);
+  padding: 0.85rem 2.2rem;
+  border-radius: 14px;
+  font-weight: 750;
+  font-size: 0.95rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.btn-toggle-arrow {
+  display: inline-block;
+  font-size: 1.1rem;
+  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Effetti di Hover */
+.btn-toggle-projects:hover {
+  background-color: var(--primary-color);
+  color: #ffffff;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(37, 99, 235, 0.15);
+}
+
+/* Stato attivo quando la tendina è srotolata (Ruota la freccia verso l'alto) */
+.btn-toggle-projects.active .btn-toggle-arrow {
+  transform: rotate(-180deg);
+}
+
+/* ===========================================================
+   STATI ASINCRONI & ANIMAZIONI LOCALI KEYFRAMES
    =========================================================== */
 
 .loading {
@@ -159,6 +205,17 @@
   font-size: 0.9rem;
 }
 
+@keyframes slideInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
 /* ===========================================================
    RESPONSIVE STEP 1 & 2: LAPTOP & TABLET SWITCH (max-width: 1200px & 868px)
    =========================================================== */
@@ -172,7 +229,7 @@
 
 @media (max-width: 868px) {
   .projects-grid {
-    grid-template-columns: 1fr; /* Switch completo a una colonna per preservare lo spazio */
+    grid-template-columns: 1fr; 
     gap: 30px;
   }
   .project-image {
@@ -199,6 +256,14 @@
   .project-card-content {
     padding: 18px;
   }
+  .projects-action-wrapper {
+    margin-top: 35px;
+  }
+  .btn-toggle-projects {
+    width: 100%; /* Il pulsante occupa tutta la larghezza su smartphone per comodità di tap */
+    justify-content: center;
+    padding: 0.9rem 0;
+  }
 }
 
 @media (max-width: 320px) {
@@ -210,7 +275,7 @@
   }
   .project-description {
     font-size: 0.9rem;
-    height: auto; /* Permette lo srotolamento completo se lo spazio orizzontale è ridotto */
+    height: auto; 
     max-height: 5.4em;
   }
 }

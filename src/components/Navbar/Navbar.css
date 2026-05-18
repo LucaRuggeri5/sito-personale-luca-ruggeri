@@ -14,12 +14,38 @@
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.02);
 }
 
+/* Trova la regola .navbar-logo a e assicurati che sia così per mantenere gli spazi */
 .navbar-logo a {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
   font-size: 1.4rem;
   font-weight: 800;
   color: #0f172a;
   text-decoration: none;
   letter-spacing: -0.5px;
+}
+
+.navbar-logo-img {
+  width: 32px;
+  height: 32px;
+  object-fit: contain;
+}
+
+/* --- ANIMAZIONE DELLA SCRITTA NOME --- */
+.navbar-logo-text {
+  opacity: 0;
+  visibility: hidden;
+  transform: translateX(-10px) scale(0.95); /* Parte leggermente spostato a sinistra e più piccolo */
+  transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1); /* Transizione super fluida */
+  white-space: nowrap; /* Impedisce al testo di andare a capo durante l'animazione */
+}
+
+/* Stato quando l'utente supera l'Hero dello schermo */
+.navbar-logo-text.visible {
+  opacity: 1;
+  visibility: visible;
+  transform: translateX(0) scale(1); /* Torna alla posizione e dimensione originaria */
 }
 
 /* Wrapper che unisce link e CTA per controllarli in blocco su mobile */
@@ -85,7 +111,7 @@
 .hamburger-line {
   width: 100%;
   height: 2px;
-  background-color: #0f172a; /* Colore coordinato al testo */
+  background-color: #0f172a; 
   border-radius: 2px;
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   transform-origin: left center;
@@ -109,13 +135,12 @@
 
 @media (max-width: 768px) {
   .hamburger-btn {
-    display: flex; /* Mostra il pulsante hamburger su schermi piccoli */
+    display: flex; 
   }
 
-  /* Trasformiamo il wrapper dei link in una tendina a comparsa dall'alto */
   .navbar-menu-wrapper {
     position: absolute;
-    top: 100%; /* Si posiziona esattamente sotto il bordo inferiore della navbar */
+    top: 100%; 
     left: 0;
     width: 100%;
     background-color: rgba(255, 255, 255, 0.98);
@@ -126,7 +151,6 @@
     padding: 2.5rem 0;
     box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.05);
     
-    /* Stato iniziale: Chiuso (invisibile e spostato verso l'alto) */
     opacity: 0;
     visibility: hidden;
     transform: translateY(-10px);
@@ -134,7 +158,6 @@
     z-index: 999;
   }
 
-  /* Stato finale: Aperto (attivato tramite la classe aggiunta da React) */
   .navbar-menu-wrapper.active {
     opacity: 1;
     visibility: visible;
@@ -149,7 +172,7 @@
   }
 
   .navbar-links a {
-    font-size: 1.1rem; /* Testo leggermente più grande per facilitare il tocco delle dita */
+    font-size: 1.1rem; 
     width: 100%;
     text-align: center;
     display: block;
@@ -157,12 +180,12 @@
   }
 
   .navbar-cta {
-    width: 80%; /* Allarga la CTA per bilanciare il design mobile */
+    width: 80%; 
     text-align: center;
   }
 
   .cv-button {
-    display: block; /* Il bottone occupa tutto lo spazio del suo contenitore su mobile */
+    display: block; 
     padding: 0.8rem 0;
   }
 }

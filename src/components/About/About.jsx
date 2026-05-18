@@ -11,7 +11,7 @@ import viteIcon from '../../assets/icons/vite.svg';
 import nodeIcon from '../../assets/icons/nodejs.svg';
 import postgresIcon from '../../assets/icons/postgresql.svg';
 import mysqlIcon from '../../assets/icons/mysql.svg';
-import expressIcon from '../../assets/icons/express.svg'
+import expressIcon from '../../assets/icons/express.svg';
 
 const About = () => {
   const skills = [
@@ -42,7 +42,7 @@ const About = () => {
           </p>
           <p>
             Il mio obiettivo è scrivere codice pulito, scalabile e facile da mantenere, 
-            senza mai dimenticare l'importanza dell'esperienza utente (UX). 
+            senza mai dimenticare l'importance dell'esperienza utente (UX). 
             Quando non sono davanti sullo schermo, mi piace seguire il calcio e tenermi aggiornato sulle ultime tecnologie.
           </p>
         </div>

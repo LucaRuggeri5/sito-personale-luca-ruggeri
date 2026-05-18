@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import './Navbar.css';
 
-const Navbar = () => {
+const Navbar = ({ isDarkMode, toggleTheme }) => {
   // Stato per gestire l'apertura/chiusura del menu mobile
   const [isOpen, setIsOpen] = useState(false);
   // Stato per mostrare/nascondere il nome "Luca Ruggeri"
@@ -77,16 +77,27 @@ const Navbar = () => {
         </a>
       </div>
 
-      {/* Pulsante Hamburger in Puro CSS */}
-      <button 
-        className={`hamburger-btn ${isOpen ? 'open' : ''}`} 
-        onClick={toggleMenu}
-        aria-label="Menu di navigazione"
-      >
-        <span className="hamburger-line"></span>
-        <span className="hamburger-line"></span>
-        <span className="hamburger-line"></span>
-      </button>
+      {/* Raggruppamento tasti di controllo per layout mobile */}
+      <div className="navbar-controls-mobile">
+        <button 
+          className="theme-toggle-btn" 
+          onClick={toggleTheme}
+          aria-label="Cambia tema visivo"
+        >
+          {isDarkMode ? '☀' : '☾'}
+        </button>
+
+        {/* Pulsante Hamburger in Puro CSS */}
+        <button 
+          className={`hamburger-btn ${isOpen ? 'open' : ''}`} 
+          onClick={toggleMenu}
+          aria-label="Menu di navigazione"
+        >
+          <span className="hamburger-line"></span>
+          <span className="hamburger-line"></span>
+          <span className="hamburger-line"></span>
+        </button>
+      </div>
 
       {/* Contenitore dei Link e della CTA */}
       <div className={`navbar-menu-wrapper ${isOpen ? 'active' : ''}`}>
@@ -99,6 +110,16 @@ const Navbar = () => {
           </li>
           <li>
             <a href="#contatti" onClick={(e) => handleScrollToSection(e, 'contatti')}>Contatti</a>
+          </li>
+          {/* Interruttore minimale integrato stabilmente alla fine dei link su desktop */}
+          <li className="desktop-theme-item">
+            <button 
+              className="theme-toggle-btn desktop-theme-btn" 
+              onClick={toggleTheme}
+              aria-label="Cambia tema visivo"
+            >
+              {isDarkMode ? '☀ LIGHT' : '☾ DARK'}
+            </button>
           </li>
         </ul>
 

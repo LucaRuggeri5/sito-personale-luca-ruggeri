@@ -82,8 +82,8 @@ Per clonare il repository ed eseguire il progetto in locale, segui questi passag
 
 1. **Clona il repository:**
 ```bash
-git clone https://github.com/LucaRuggeri5/portfolio.git
-cd portfolio
+git clone https://github.com/LucaRuggeri5/sito-personale-luca-ruggeri.git
+cd sito-personale-luca-ruggeri
 
 ```
 

@@ -27,10 +27,10 @@ const Hero = () => {
         {/* Blocco Sinistro: Contenuto testuale */}
         <div className="hero-content">
           <h1 className="hero-title">Luca Ruggeri</h1>
-          <h2 className="hero-subtitle">Sviluppo interfacce web moderne.</h2>
+          <h2 className="hero-subtitle">Sviluppo interfacce web moderne</h2>
 
           <p className="hero-description">
-            Sono un aspirante Web Developer specializzato in <strong>React</strong>.
+            Sono un aspirante <strong>Web Developer specializzato in React</strong>.
             Mi piace costruire applicazioni web che siano semplici, veloci e accessibili a tutti.
           </p>
 

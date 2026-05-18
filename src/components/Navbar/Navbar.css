@@ -131,7 +131,9 @@
   transform: rotate(-45deg);
 }
 
-/* --- MEDIA QUERY PER DISPOSITIVI MOBILI E TABLET --- */
+/* -----------------------------------------------------------
+MEDIA QUERY PER DISPOSITIVI MOBILI E TABLET
+----------------------------------------------------------- */
 
 @media (max-width: 768px) {
   .hamburger-btn {

@@ -16,12 +16,13 @@ const Footer = () => {
 
         {/* Link rapidi reali coordinati con la sezione contatti */}
         <div className="footer-socials">
-          <a href="https://github.com/LucaRuggeri5" target="_blank" rel="noreferrer">
-            GitHub
-          </a>
           <a href="https://www.linkedin.com/in/luca-ruggeri97/" target="_blank" rel="noreferrer">
             LinkedIn
           </a>
+          <a href="https://github.com/LucaRuggeri5" target="_blank" rel="noreferrer">
+            GitHub
+          </a>
+          <a href="https://discord.com/users/161533401122340864" target='blank' rel='noreferrer'>Discord</a>
           <a href="mailto:luca.ruggeri5@gmail.com">
             Email
           </a>
@@ -30,7 +31,7 @@ const Footer = () => {
 
       {/* Copyright */}
       <div className="footer-bottom">
-        <p>&copy; {currentYear} - Creato con React & Vite</p>
+        <p>&copy; {currentYear} - Rome</p>
       </div>
     </footer>
   );

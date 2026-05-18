@@ -68,7 +68,7 @@ const Navbar = ({ isDarkMode, toggleTheme }) => {
           onClick={(e) => { e.preventDefault(); setIsOpen(false); window.scrollTo({ top: 0, behavior: 'smooth' }); }}
         >
           {/* Il logo SVG rimane sempre visibile come punto di riferimento */}
-          <img src="/newfavicon.svg" alt="" className="navbar-logo-img" aria-hidden="true" />
+          <img src="/favicon.svg" alt="" className="navbar-logo-img" aria-hidden="true" />
           
           {/* La scritta appare o scompare dinamicamente tramite la classe CSS */}
           <span className={`navbar-logo-text ${showName ? 'visible' : ''}`}>

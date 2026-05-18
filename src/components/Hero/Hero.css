@@ -1,5 +1,5 @@
 /* ===========================================================
-   CONTENITORE HERO PRINCIPALE
+   CONTENITORE HERO PRINCIPALE & RETICOLO TECNICO
    =========================================================== */
 
 .hero-container {
@@ -7,9 +7,26 @@
   align-items: center;
   justify-content: center;
   min-height: calc(85vh - 70px); 
-  padding: 40px 5%;
+  padding: 60px 5%;
   max-width: 1200px;
   margin: 0 auto;
+  position: relative;
+}
+
+/* Il reticolo geometrico discreto caratteristico della proposta B */
+.hero-tech-grid {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  opacity: 0.45;
+  pointer-events: none;
+  background-size: 40px 40px;
+  background-image: 
+    linear-gradient(to right, #f1f5f9 1px, transparent 1px),
+    linear-gradient(to bottom, #f1f5f9 1px, transparent 1px);
+  /* Sfumatura morbida per far dissolvere la griglia ai lati */
+  mask-image: radial-gradient(circle at center, black 40%, transparent 90%);
+  -webkit-mask-image: radial-gradient(circle at center, black 40%, transparent 90%);
 }
 
 .hero-wrapper {
@@ -17,12 +34,14 @@
   align-items: center;
   justify-content: space-between;
   width: 100%;
-  gap: 40px;
-  animation: fadeInHero 1s cubic-bezier(0.4, 0, 0.2, 1);
+  gap: 50px;
+  position: relative;
+  z-index: 2;
+  animation: fadeInHero 0.8s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 /* ===========================================================
-   BLOCCO TESTI HERO (GERARCHIA VISIVA)
+   BLOCCO TESTI HERO (STRUTTURA PULITA)
    =========================================================== */
 
 .hero-content {
@@ -31,61 +50,64 @@
 }
 
 .hero-title {
-  font-size: clamp(2.5rem, 6vw, 4.2rem);
-  color: var(--text-color);
+  font-size: clamp(2.4rem, 5.5vw, 4rem);
+  color: #0f172a;
   font-weight: 850; 
-  letter-spacing: -2px; 
-  margin-top: 0.8rem;
-  margin-bottom: 0.2rem;
+  letter-spacing: -1.5px; 
+  margin-top: 0;
+  margin-bottom: 0.4rem;
 }
 
 .hero-subtitle {
-  font-size: clamp(1.6rem, 4vw, 2.6rem);
-  color: #64748b; 
+  font-size: clamp(1.4rem, 3.5vw, 2.2rem);
+  color: #475569; /* Grigio tecnico bilanciato */
   font-weight: 700;
-  letter-spacing: -1px;
-  margin-bottom: 1.5rem;
-  line-height: 1.2;
+  letter-spacing: -0.8px;
+  margin-bottom: 1.8rem;
+  line-height: 1.25;
 }
 
 .hero-description {
-  color: #475569; 
-  font-size: clamp(1rem, 2.5vw, 1.15rem);
-  line-height: 1.7;
-  max-width: 580px;
-  margin-bottom: 2.5rem;
+  color: #57657a; 
+  font-size: clamp(0.95rem, 2.2vw, 1.1rem);
+  line-height: 1.75;
+  max-width: 560px;
+  margin-bottom: 2.8rem;
 }
 
 .hero-description strong {
-  color: var(--primary-color); 
+  color: #0f172a; /* Mantiene l'enfasi scura e minimalista */
+  font-weight: 700;
 }
 
 /* ===========================================================
-   ELEMENTI INTERATTIVI / CTA BUTTON
+   ELEMENTI INTERATTIVI / CTA BUTTON (SQUADRATO)
    =========================================================== */
 
 .btn-primary {
   display: inline-block;
-  background-color: transparent;
-  color: var(--primary-color);
-  border: 2px solid var(--primary-color);
-  padding: 0.9rem 2rem;
-  border-radius: 12px; 
-  font-weight: 700;
-  font-size: 0.95rem;
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-  box-shadow: 0 4px 6px -1px rgba(37, 99, 235, 0.05);
+  background-color: #1e293b;
+  color: #ffffff;
+  border: 1px solid #0f172a;
+  padding: 0.85rem 2.2rem;
+  border-radius: 4px; /* Taglio geometrico netto */
+  font-weight: 650;
+  font-size: 0.9rem;
+  text-decoration: none;
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: 0 2px 4px rgba(15, 23, 42, 0.04);
 }
 
 .btn-primary:hover {
-  background-color: var(--primary-color);
-  color: white;
+  background-color: transparent;
+  color: #0f172a;
+  border-color: #0f172a;
   transform: translateY(-2px); 
-  box-shadow: 0 10px 20px rgba(37, 99, 235, 0.15);
+  box-shadow: 0 8px 20px rgba(15, 23, 42, 0.08);
 }
 
 /* ===========================================================
-   BLOCCO FOTO DI PROFILO
+   BLOCCO FOTO DI PROFILO PANNELLO STRUTTURATO
    =========================================================== */
 
 .hero-image-container {
@@ -97,23 +119,37 @@
 
 .hero-image-wrapper {
   position: relative;
-  width: clamp(280px, 30vw, 360px); 
-  height: clamp(280px, 30vw, 360px);
-  border-radius: 24px; 
-  overflow: hidden;
-  box-shadow: 0 20px 40px -15px rgba(15, 23, 42, 0.15); 
-  border: 1px solid #f1f5f9;
+  width: clamp(260px, 28vw, 340px); 
+  height: clamp(260px, 28vw, 340px);
+  border-radius: 8px; /* Smussatura micro e rigorosa */
+  border: 1px solid #cbd5e1;
+  background: #ffffff;
+  padding: 10px; /* Crea una cornice pulita stile pannello */
+  box-shadow: 0 10px 30px rgba(15, 23, 42, 0.04);
+}
+
+/* Cornice di sfasamento geometrico interna */
+.hero-image-blueprint {
+  position: absolute;
+  inset: 0;
+  border: 1px dashed #94a3b8;
+  border-radius: 6px;
+  margin: 4px;
+  pointer-events: none;
+  opacity: 0.5;
 }
 
 .hero-profile-img {
   width: 100%;
   height: 100%;
   object-fit: cover; 
-  transition: transform 0.5s ease;
+  border-radius: 4px;
+  filter: grayscale(10%) contrast(102%); /* Adattamento tonale pacato */
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .hero-image-wrapper:hover .hero-profile-img {
-  transform: scale(1.04);
+  transform: scale(1.02);
 }
 
 /* ===========================================================
@@ -123,7 +159,7 @@
 @keyframes fadeInHero {
   from {
     opacity: 0;
-    transform: translateY(20px);
+    transform: translateY(15px);
   }
   to {
     opacity: 1;
@@ -140,6 +176,9 @@
     padding-left: 5%;
     padding-right: 5%;
   }
+  .hero-wrapper {
+    gap: 35px;
+  }
 }
 
 /* ===========================================================
@@ -149,13 +188,13 @@
 @media (max-width: 768px) {
   .hero-container {
     min-height: auto;
-    padding: 50px 24px;
+    padding: 60px 24px;
   }
 
   .hero-wrapper {
-    flex-direction: column-reverse; /* Inversione: Immagine sopra, testi sotto */
+    flex-direction: column-reverse; /* Immagine sopra, testi sotto */
     text-align: center;
-    gap: 35px;
+    gap: 40px;
   }
 
   .hero-image-container {
@@ -163,8 +202,8 @@
   }
 
   .hero-image-wrapper {
-    width: 260px;
-    height: 260px;
+    width: 240px;
+    height: 240px;
   }
 
   .hero-description {
@@ -179,18 +218,18 @@
 
 @media (max-width: 480px) {
   .hero-container {
-    padding: 40px 16px;
+    padding: 45px 16px;
   }
   .hero-image-wrapper {
-    width: 220px;
-    height: 220px;
-    border-radius: 20px;
+    width: 210px;
+    height: 210px;
+    padding: 8px;
   }
   .hero-title {
-    letter-spacing: -1px;
+    letter-spacing: -0.5px;
   }
   .btn-primary {
-    width: 100%; /* Il pulsante si adatta a tutta la larghezza su mobile */
+    width: 100%; 
     text-align: center;
   }
 }
@@ -201,6 +240,6 @@
     height: 180px;
   }
   .hero-subtitle {
-    font-size: 1.3rem;
+    font-size: 1.25rem;
   }
 }

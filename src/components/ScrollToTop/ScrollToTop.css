@@ -1,55 +1,64 @@
 /* ===========================================================
-   STRUTTURA E POSIZIONAMENTO PULSANTE BACK-TO-TOP
+   STRUTTURA E POSIZIONAMENTO PULSANTE BACK-TO-TOP (GEOMETRICO)
    =========================================================== */
 
 .scroll-to-top {
   position: fixed;
-  bottom: 2rem;
-  right: 2rem;
+  bottom: 2.5rem;
+  right: 2.5rem;
   z-index: 1000;
 }
 
 .scroll-btn {
-  background-color: var(--primary-color);
-  color: white;
-  width: 50px;
-  height: 50px;
-  border-radius: 50%;
-  border: none;
+  background-color: #0f172a; /* Allineato ai bottoni primari scuri */
+  color: #ffffff;
+  width: 44px;
+  height: 44px;
+  border-radius: 4px; /* Angoli nettamente squadrati in linea col brand */
+  border: 1px solid #334155;
   cursor: pointer;
-  font-size: 1.5rem;
+  font-size: 1.2rem;
   font-weight: bold;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 4px 12px rgba(15, 23, 42, 0.15);
   display: flex;
   align-items: center;
   justify-content: center;
-  transition: all 0.3s ease;
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .scroll-btn:hover {
-  transform: scale(1.1);
-  background-color: var(--accent-color);
+  background-color: #1e293b;
+  border-color: #94a3b8;
+  transform: translateY(-2px);
 }
 
 /* ===========================================================
-   RESPONSIVE STEP PER DISPOSITIVI TOUCH (768px, 480px & 320px)
+   RESPONSIVE PER DISPOSITIVI TOUCH & MOBILE SMARTPHONES
    =========================================================== */
 
 @media (max-width: 768px) {
+  .scroll-to-top {
+    bottom: 2rem;
+    right: 2rem;
+  }
+  
   .scroll-btn:hover {
-    transform: none; /* Rimuove l'hovering di ingrandimento che sui dispositivi touch si incastra */
+    transform: none; /* Rimuove l'effetto hover persistente sui display touch */
+    background-color: #0f172a;
+    border-color: #334155;
   }
 }
 
 @media (max-width: 480px) {
   .scroll-to-top {
     bottom: 1.5rem;
-    right: 1.5rem; /* Avvicina il pulsante al bordo per non coprire i testi */
+    right: 1.5rem; 
   }
+  
   .scroll-btn {
-    width: 44px;
-    height: 44px; /* Dimensione ideale per il click del pollice senza ingombrare */
-    font-size: 1.3rem;
+    width: 40px;
+    height: 40px; 
+    font-size: 1.1rem;
   }
 }
 

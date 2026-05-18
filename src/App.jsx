@@ -24,6 +24,7 @@ const App = () => {
         <div className="reveal" id="contatti"><Contact /></div>
       </main>
       
+      <footer />
       <Footer />
       <ScrollToTop />
     </div>

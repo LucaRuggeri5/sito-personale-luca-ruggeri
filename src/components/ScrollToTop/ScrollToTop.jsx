@@ -24,7 +24,6 @@ const ScrollToTop = () => {
 
     // Listener per la visibilità del bottone
     const toggleVisibility = () => {
-      // Usiamo window.scrollY al posto del deprecato pageYOffset
       if (window.scrollY > 300) {
         setIsVisible(true);
       } else {

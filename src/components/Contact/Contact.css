@@ -1,84 +1,126 @@
 /* ===========================================================
-   CONTENITORE CONTATTI SEZIONE
+   CONTENITORE CONTATTI & STRUTTURA HI-TECH
    =========================================================== */
 
 .contact-container {
-  padding: 80px 5%;
+  padding: 100px 5%;
   text-align: center;
+  background-color: #f8fafc; /* Grigio chiarissimo di fondo strutturale */
+  position: relative;
+  overflow: hidden;
+}
+
+/* Trama a griglia lineare sottile per l'area finale dei contatti */
+.contact-tech-mesh {
+  position: absolute;
+  inset: 0;
+  opacity: 0.4;
+  pointer-events: none;
+  background-size: 30px 30px;
+  background-image: linear-gradient(to right, #e2e8f0 1px, transparent 1px),
+                    linear-gradient(to bottom, #e2e8f0 1px, transparent 1px);
+  mask-image: linear-gradient(to bottom, transparent, black 20%, black 80%, transparent);
+  -webkit-mask-image: linear-gradient(to bottom, transparent, black 20%, black 80%, transparent);
+}
+
+.contact-wrapper {
+  position: relative;
+  z-index: 2;
 }
 
 .contact-title {
   font-size: clamp(2rem, 5vw, 2.8rem);
   font-weight: 850;
   margin-bottom: 0.8rem; 
-  color: var(--text-color);
+  color: #0f172a;
   letter-spacing: -1px;
 }
 
 .contact-subtitle {
-  color: #64748b; 
-  font-size: clamp(1rem, 3vw, 1.1rem);
+  color: #57657a; 
+  font-size: clamp(0.95rem, 2.8vw, 1.05rem);
   max-width: 600px;
-  margin: 0 auto 3.5rem auto; 
+  margin: 0 auto 4rem auto; 
   line-height: 1.6;
 }
 
 /* ===========================================================
-   GRID SISTEMA & CARDS DI CONTATTO E SOCIAL (DESKTOP STANDARD)
+   SISTEMA GRIGLIA & CARDS DI CONTATTO (SQUADRATE E PULITE)
    =========================================================== */
 
 .contact-grid {
   display: grid;
-  /* Forza esattamente 4 colonne affiancate sopra i 768px */
   grid-template-columns: repeat(4, 1fr); 
-  gap: 25px;
+  gap: 24px;
   max-width: 1200px;
   margin: 0 auto;
 }
 
 .social-card {
   background: #ffffff;
-  padding: 2.5rem 1.5rem; /* Ottimizzato padding per equilibrio orizzontale */
-  border-radius: 24px;
-  border: 1px solid #f1f5f9;
+  padding: 2.5rem 1.5rem; 
+  border-radius: 8px; /* Uniformato alle linee geometriche del sito */
+  border: 1px solid #cbd5e1;
   text-decoration: none;
   color: inherit;
   display: flex;
   flex-direction: column;
   align-items: center;
-  transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.4s ease, border-color 0.4s ease;
-  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.02);
+  position: relative;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: 0 4px 6px -1px rgba(15, 23, 42, 0.02);
+}
+
+/* Micro-barra tecnologica sul fondo della card che si accende al passaggio del mouse */
+.card-tech-indicator {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 0px;
+  background-color: #0f172a;
+  transition: height 0.2s ease;
 }
 
 .social-card:hover {
-  transform: translateY(-8px) scale(1.03);
-  border-color: #cbd5e1; 
-  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.06);
+  transform: translateY(-5px);
+  border-color: #0f172a; 
+  box-shadow: 0 12px 24px -10px rgba(15, 23, 42, 0.1);
+}
+
+.social-card:hover .card-tech-indicator {
+  height: 3px;
 }
 
 .social-icon {
-  width: 44px;
-  height: 44px;
+  width: 40px;
+  height: 40px;
   margin-bottom: 1.2rem;
   object-fit: contain;
+  transition: transform 0.3s ease;
+}
+
+.social-card:hover .social-icon {
+  transform: scale(1.05);
 }
 
 .social-card h3 {
-  font-size: 1.25rem;
-  font-weight: 700;
-  color: #1e293b;
+  font-size: 1.15rem;
+  font-weight: 750;
+  color: #0f172a;
   margin-bottom: 6px;
+  font-family: monospace, sans-serif;
 }
 
 .social-card p {
-  color: #64748b;
-  font-size: 0.95rem;
+  color: #57657a;
+  font-size: 0.92rem;
   font-weight: 500;
-  word-break: break-all; /* Sicurezza totale contro l'overflow di email lunghe */
+  word-break: break-all;
 }
 
 /* ===========================================================
-   RESPONSIVE STEP 1 & 2: DESKTOP LIMIT & TABLET FORCED 2x2 (1200px & 768px)
+   RESPONSIVE STEP 1 & 2: LAPTOP & TABLET FORCED 2x2
    =========================================================== */
 
 @media (max-width: 1200px) {
@@ -87,29 +129,32 @@
     padding-right: 5%;
   }
   .contact-grid {
-    gap: 20px; /* Compatta leggermente lo spazio sui laptop piccoli */
+    gap: 20px; 
   }
 }
 
 @media (max-width: 768px) {
   .contact-container {
-    padding-top: 50px;
-    padding-bottom: 50px;
+    padding-top: 60px;
+    padding-bottom: 60px;
   }
   
   .contact-subtitle {
-    margin-bottom: 2.5rem;
+    margin-bottom: 2.8rem;
   }
   
   .contact-grid {
-    /* Forza rigidamente il layout a blocco quad-grid 2x2 */
-    grid-template-columns: repeat(2, 1fr); 
-    gap: 20px;
+    grid-template-columns: repeat(2, 1fr); /* Perfetto mantenimento del layout 2x2 */
+    gap: 16px;
+  }
+  
+  .social-card {
+    padding: 2.2rem 1.2rem;
   }
 }
 
 /* ===========================================================
-   RESPONSIVE STEP 3 & 4: MOBILE VIEWS IN 2x2 (480px & 320px)
+   RESPONSIVE STEP 3 & 4: MOBILE VIEWS IN 2x2
    =========================================================== */
 
 @media (max-width: 480px) {
@@ -119,22 +164,22 @@
   }
 
   .contact-grid {
-    gap: 12px; /* Riduce il distacco per massimizzare l'area cliccabile delle card */
+    gap: 12px; 
   }
 
   .social-card {
-    padding: 1.8rem 1rem; /* Padding interno ridotto per dare respiro ai testi */
-    border-radius: 18px;
+    padding: 1.8rem 1rem; 
+    border-radius: 6px;
   }
 
   .social-icon {
-    width: 38px;
-    height: 38px;
+    width: 34px;
+    height: 34px;
     margin-bottom: 0.8rem;
   }
 
   .social-card h3 {
-    font-size: 1.1rem;
+    font-size: 1.05rem;
   }
 
   .social-card p {
@@ -144,19 +189,14 @@
 
 @media (max-width: 320px) {
   .contact-grid {
-    gap: 8px; /* Ottimizzazione millimetrica per iPhone SE vecchi */
+    gap: 8px; 
   }
 
   .social-card {
-    padding: 1.4rem 0.6rem;
-    border-radius: 14px;
+    padding: 1.4rem 0.5rem;
   }
 
   .social-card p {
-    font-size: 0.78rem; /* Rimpicciolisce leggermente l'indirizzo email per evitare troppi a-capo */
-  }
-
-  .contact-title {
-    letter-spacing: 0px;
+    font-size: 0.76rem; 
   }
 }

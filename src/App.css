@@ -1,12 +1,15 @@
 /* ===========================================================
-   ROOT VARIABLES (DESIGN SYSTEM)
+   ROOT VARIABLES (DESIGN SYSTEM - MINIMALISMO TECNICO)
    =========================================================== */
 
 :root {
-  --primary-color: #2563eb;
-  --accent-color: #3b82f6;
-  --text-color: #0f172a;
-  --bg-color: #ffffff;
+  --primary-color: #1e3a8a;       /* Blu Ardesia Scuro / Tech */
+  --accent-color: #3b82f6;        /* Blu di accento per dettagli e link */
+  --text-color: #1e293b;          /* Grigio notte profondo per massima leggibilità */
+  --bg-color: #f4f6f9;            /* Sfondo grigio ghiaccio/acciaio chiaro */
+  --panel-bg: #ffffff;            /* Sfondo dei pannelli e delle card */
+  --border-color: #d1d5db;        /* Bordi tecnici netti e discreti */
+  --grid-color: rgba(30, 58, 138, 0.03); /* Colore delle linee della griglia di sfondo */
 }
 
 /* ===========================================================

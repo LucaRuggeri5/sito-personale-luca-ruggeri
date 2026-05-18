@@ -16,20 +16,27 @@ const Contact = () => {
 
   return (
     <section id="contatti" className="contact-container">
-      <h2 className="contact-title">Mettiamoci in contatto</h2>
-      {/* Nuovo sottotitolo di guida per l'utente */}
-      <p className="contact-subtitle">
-        Clicca qui sotto per scrivermi un'email o raggiungermi sui miei canali social.
-      </p>
-      
-      <div className="contact-grid">
-        {socialLinks.map((social) => (
-          <a key={social.id} href={social.link} target="_blank" rel="noreferrer" className="social-card">
-            <img src={social.icon} alt={social.platform} className="social-icon" />
-            <h3>{social.platform}</h3>
-            <p>{social.value}</p>
-          </a>
-        ))}
+      {/* Sfondo geometrico a linee opaco locale */}
+      <div className="contact-tech-mesh" aria-hidden="true"></div>
+
+      <div className="contact-wrapper">
+        <h2 className="contact-title">Mettiamoci in contatto</h2>
+        <p className="contact-subtitle">
+          Clicca qui sotto per scrivermi un'email o raggiungermi sui miei canali social.
+        </p>
+        
+        <div className="contact-grid">
+          {socialLinks.map((social) => (
+            <a key={social.id} href={social.link} target="_blank" rel="noreferrer" className="social-card">
+              {/* Linea tecnica angolare decorativa invisibile di base, si attiva in hover */}
+              <div className="card-tech-indicator" aria-hidden="true"></div>
+              
+              <img src={social.icon} alt={social.platform} className="social-icon" />
+              <h3>{social.platform}</h3>
+              <p>{social.value}</p>
+            </a>
+          ))}
+        </div>
       </div>
     </section>
   );

@@ -1,17 +1,18 @@
 /* ===========================================================
-   CONTENITORE GRIGLIA PROGETTI
+   CONTENITORE GRIGLIA PROGETTI (MINIMALISMO TECNICO)
    =========================================================== */
 
 .projects-container {
-  padding: 80px 5%;
+  padding: 100px 5%;
   max-width: 1200px; 
   margin: 0 auto;
+  position: relative;
 }
 
 .projects-title {
-  font-size: clamp(2rem, 5vw, 3rem);
+  font-size: clamp(2rem, 5vw, 2.8rem);
   font-weight: 850;
-  margin-bottom: 60px;
+  margin-bottom: 50px;
   text-align: center;
   color: #0f172a;
   letter-spacing: -1px;
@@ -20,58 +21,61 @@
 .projects-grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr); 
-  gap: 40px; 
+  gap: 32px; /* Compattezza geometrica più bilanciata */
 }
 
 /* ===========================================================
-   STRUTTURA E HOVER DELLA CARD PROGETTO
+   STRUTTURA E HOVER DELLA CARD PROGETTO (MODULO SQUADRATO)
    =========================================================== */
 
 .project-card {
   background: #ffffff;
-  border-radius: 24px;
-  border: 1px solid #f1f5f9;
+  border-radius: 8px; /* Micro smussatura pulita, addio grandi curvature */
+  border: 1px solid #cbd5e1;
   display: flex;
   flex-direction: column;
   overflow: hidden;
-  transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.4s ease, border-color 0.4s ease;
-  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
-  /* Animazione di entrata quando appaiono i nuovi progetti */
-  animation: slideInUp 0.5s cubic-bezier(0.4, 0, 0.2, 1) both;
+  position: relative;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: 0 4px 12px rgba(15, 23, 42, 0.02);
+  /* Animazione nativa ereditata rimasta pulita */
+  animation: slideInUp 0.6s cubic-bezier(0.16, 1, 0.3, 1) both;
 }
 
 .project-card:hover {
-  transform: translateY(-10px);
-  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
-  border-color: #cbd5e1;
+  transform: translateY(-4px);
+  box-shadow: 0 12px 24px -10px rgba(15, 23, 42, 0.08);
+  border-color: #0f172a; /* Cambio fuoco sul nero tecnico in linea con Proposta B */
 }
 
 /* Contenitore Immagine del Progetto */
 .project-image {
   width: 100%;
-  height: 280px; 
+  height: 260px; 
   background-color: #f8fafc;
   overflow: hidden;
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 16px;
-  border-bottom: 1px solid #f1f5f9;
+  padding: 20px;
+  border-bottom: 1px solid #cbd5e1;
+  position: relative;
 }
 
 .project-image img {
   max-width: 100%;
   max-height: 100%;
   object-fit: contain;
-  transition: transform 0.4s ease;
+  border-radius: 2px;
+  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .project-card:hover .project-image img {
-  transform: scale(1.03);
+  transform: scale(1.02);
 }
 
 /* ===========================================================
-   CONTENUTI INTERNI CARD & COMPONENTI SEMANTICI
+   CONTENUTI INTERNI CARD & DETTAGLI SEMANTICI
    =========================================================== */
 
 .project-card-content {
@@ -80,18 +84,20 @@
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  background-color: #ffffff;
 }
 
 .project-card h3 {
-  font-size: 1.4rem;
-  margin-bottom: 12px;
-  color: #1e293b;
-  font-weight: 700;
+  font-size: 1.25rem;
+  margin-bottom: 10px;
+  color: #0f172a;
+  font-weight: 750;
+  letter-spacing: -0.3px;
 }
 
 .project-description {
-  color: #64748b;
-  font-size: 0.95rem;
+  color: #57657a;
+  font-size: 0.92rem;
   line-height: 1.6;
   margin-bottom: 20px;
   height: 4.8em;
@@ -99,116 +105,136 @@
   text-overflow: ellipsis;
 }
 
-/* Contenitore Tag Tecnologici */
+/* Contenitore Tag Tecnologici Squadrati */
 .project-tech {
   display: flex;
   flex-wrap: wrap;
-  gap: 8px;
+  gap: 6px;
   margin-bottom: 24px;
 }
 
 .tech-tag {
   background-color: #f1f5f9;
   color: #334155;
-  padding: 4px 12px;
-  border-radius: 100px;
+  padding: 4px 10px;
+  border-radius: 4px; /* Taglio a mattonella hi-tech */
   font-size: 0.72rem;
   font-weight: 600;
+  font-family: monospace, sans-serif;
   border: 1px solid #e2e8f0;
 }
 
 /* Link di Azione "Vedi Progetto" */
 .project-link {
-  color: var(--primary-color);
+  color: #0f172a; /* Look sobrio monocolore */
   text-decoration: none;
   font-weight: 700;
-  font-size: 0.92rem;
+  font-size: 0.88rem;
   display: flex;
   align-items: center;
   gap: 5px;
   align-self: flex-start;
+  transition: color 0.2s ease;
 }
 
 .project-link span {
-  transition: transform 0.2s ease;
+  transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.project-link:hover {
+  color: #475569;
 }
 
 .project-link:hover span {
-  transform: translateX(5px);
+  transform: translateX(4px);
 }
 
 /* ===========================================================
-   PULSANTE DI MOSTRA ALTRI / TENDINA DINAMICA
+   PULSANTE DI MOSTRA ALTRI (STRUTTURATO E SQUADRATO)
    =========================================================== */
 
 .projects-action-wrapper {
   display: flex;
   justify-content: center;
-  margin-top: 50px;
+  margin-top: 60px;
 }
 
 .btn-toggle-projects {
   background-color: transparent;
-  color: var(--primary-color);
-  border: 2px solid var(--primary-color);
-  padding: 0.85rem 2.2rem;
-  border-radius: 14px;
-  font-weight: 750;
-  font-size: 0.95rem;
+  color: #0f172a;
+  border: 1px solid #0f172a;
+  padding: 0.8rem 2.2rem;
+  border-radius: 4px; /* Perfettamente allineato alla Navbar e ai bottoni Hero */
+  font-weight: 700;
+  font-size: 0.9rem;
   cursor: pointer;
   display: flex;
   align-items: center;
   gap: 10px;
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .btn-toggle-arrow {
   display: inline-block;
-  font-size: 1.1rem;
-  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  font-size: 1rem;
+  transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-/* Effetti di Hover */
+/* Effetti di Hover Tecnici */
 .btn-toggle-projects:hover {
-  background-color: var(--primary-color);
+  background-color: #1e293b;
   color: #ffffff;
-  transform: translateY(-2px);
-  box-shadow: 0 8px 20px rgba(37, 99, 235, 0.15);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(15, 23, 42, 0.08);
 }
 
-/* Stato attivo quando la tendina è srotolata (Ruota la freccia verso l'alto) */
+/* Stato attivo per rotazione freccia */
 .btn-toggle-projects.active .btn-toggle-arrow {
   transform: rotate(-180deg);
 }
 
 /* ===========================================================
-   STATI ASINCRONI & ANIMAZIONI LOCALI KEYFRAMES
+   STATI ASINCRONI & SCHEMI DIAGRAMMA DI LOGS
    =========================================================== */
 
 .loading {
   text-align: center;
-  font-size: 1.2rem;
-  color: #64748b;
+  font-size: 1.1rem;
+  color: #57657a;
   padding: 100px 0;
+  font-family: monospace, sans-serif;
 }
 
 .image-placeholder {
   width: 100%;
   height: 100%;
-  background: #f1f5f9;
-  border-radius: 12px;
+  background: #f8fafc;
+  border-radius: 4px;
   display: flex;
   align-items: center;
   justify-content: center;
   color: #94a3b8;
-  font-weight: 500;
-  font-size: 0.9rem;
+  font-weight: 600;
+  font-size: 0.82rem;
+  font-family: monospace, sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  border: 1px dashed #cbd5e1;
+  position: relative;
+}
+
+/* Sottile decorazione blueprint per gli screenshot non pronti */
+.placeholder-border-decor {
+  position: absolute;
+  inset: 4px;
+  border: 1px solid rgba(203, 213, 225, 0.4);
+  pointer-events: none;
 }
 
 @keyframes slideInUp {
   from {
     opacity: 0;
-    transform: translateY(20px);
+    transform: translateY(15px);
   }
   to {
     opacity: 1;
@@ -217,7 +243,7 @@
 }
 
 /* ===========================================================
-   RESPONSIVE STEP 1 & 2: LAPTOP & TABLET SWITCH (max-width: 1200px & 868px)
+   RESPONSIVE STEP 1 & 2: LAPTOP & TABLET LAYOUTS
    =========================================================== */
 
 @media (max-width: 1200px) {
@@ -230,21 +256,21 @@
 @media (max-width: 868px) {
   .projects-grid {
     grid-template-columns: 1fr; 
-    gap: 30px;
+    gap: 28px;
   }
   .project-image {
-    height: 240px;
+    height: 230px;
   }
 }
 
 /* ===========================================================
-   RESPONSIVE STEP 3 & 4: MOBILE VIEWS (480px & 320px)
+   RESPONSIVE STEP 3 & 4: MOBILE SMARTPHONES
    =========================================================== */
 
 @media (max-width: 480px) {
   .projects-container {
-    padding-top: 50px;
-    padding-bottom: 50px;
+    padding-top: 60px;
+    padding-bottom: 60px;
   }
   .projects-title {
     margin-bottom: 35px;
@@ -254,15 +280,15 @@
     padding: 12px;
   }
   .project-card-content {
-    padding: 18px;
+    padding: 20px;
   }
   .projects-action-wrapper {
     margin-top: 35px;
   }
   .btn-toggle-projects {
-    width: 100%; /* Il pulsante occupa tutta la larghezza su smartphone per comodità di tap */
+    width: 100%; 
     justify-content: center;
-    padding: 0.9rem 0;
+    padding: 0.85rem 0;
   }
 }
 
@@ -271,10 +297,10 @@
     height: 160px;
   }
   .project-card {
-    border-radius: 16px;
+    border-radius: 4px;
   }
   .project-description {
-    font-size: 0.9rem;
+    font-size: 0.88rem;
     height: auto; 
     max-height: 5.4em;
   }

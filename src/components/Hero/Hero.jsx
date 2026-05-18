@@ -22,6 +22,9 @@ const Hero = () => {
 
   return (
     <section className="hero-container">
+      {/* Sfondo reticolare tecnico geometrico */}
+      <div className="hero-tech-grid" aria-hidden="true"></div>
+
       <div className="hero-wrapper">
         
         {/* Blocco Sinistro: Contenuto testuale */}
@@ -44,6 +47,8 @@ const Hero = () => {
         {/* Blocco Destro: Contenitore Immagine Profilo */}
         <div className="hero-image-container">
           <div className="hero-image-wrapper">
+            {/* Elemento decorativo blueprint geometrico dietro la foto */}
+            <div className="hero-image-blueprint" aria-hidden="true"></div>
             <img src={profileImg} alt="Luca Ruggeri" className="hero-profile-img" />
           </div>
         </div>

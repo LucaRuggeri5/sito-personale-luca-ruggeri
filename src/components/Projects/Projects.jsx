@@ -60,6 +60,8 @@ const Projects = () => {
                 <img src={project.image_url} alt={project.title} />
               ) : (
                 <div className="image-placeholder">
+                  {/* Micro elemento lineare per lo stile tecnico */}
+                  <div className="placeholder-border-decor" aria-hidden="true"></div>
                   <span>Screenshot in arrivo</span>
                 </div>
               )}

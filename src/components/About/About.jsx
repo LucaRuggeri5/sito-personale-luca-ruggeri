@@ -29,6 +29,9 @@ const About = () => {
 
   return (
     <section id="about" className="about-container">
+      {/* Sfondo geometrico a linee (Reticolo Tecnico) */}
+      <div className="about-tech-mesh" aria-hidden="true"></div>
+
       <div className="about-content">
         
         <div className="about-text">
@@ -45,11 +48,13 @@ const About = () => {
         </div>
 
         <div className="about-skills">
+          {/* Micro-cornice geometrica interna decorativa */}
+          <div className="skills-blueprint-frame" aria-hidden="true"></div>
+          
           <h3>Le mie Skill</h3>
           <ul className="skills-list">
             {skills.map((skill, index) => (
               <li key={index} className="skill-item">
-                {/* Usiamo un normale tag img per caricare l'SVG importato */}
                 <img src={skill.icon} alt={skill.name} className="skill-icon" />
                 <span className="skill-name">{skill.name}</span>
               </li>

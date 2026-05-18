@@ -1,12 +1,14 @@
 /* ===========================================================
-   CONTENITORE FOOTER (SFONDO IN CONTRASTO)
+   CONTENITORE FOOTER (NERO ARDESIA E PULIZIA TECNICA)
    =========================================================== */
 
 .footer-container {
   background-color: #0f172a; 
   color: #f8fafc;
-  padding: 4rem 5% 2rem 5%;
-  margin-top: 5rem; 
+  padding: 5rem 5% 2.5rem 5%;
+  margin-top: 0; /* Si attacca fluidamente alla trama dei contatti */
+  border-top: 1px solid #334155;
+  position: relative;
 }
 
 .footer-content {
@@ -17,7 +19,7 @@
   gap: 2rem;
   max-width: 1200px;
   margin: 0 auto;
-  padding-bottom: 2rem;
+  padding-bottom: 2.5rem;
   border-bottom: 1px solid #1e293b; 
 }
 
@@ -27,10 +29,11 @@
 
 .footer-info h3 {
   color: #ffffff;
-  font-size: 1.25rem;
-  font-weight: 700;
-  margin-bottom: 0.5rem;
+  font-size: 1.2rem;
+  font-weight: 750;
+  margin-bottom: 0.6rem;
   letter-spacing: -0.5px;
+  font-family: monospace, sans-serif;
 }
 
 .footer-info p {
@@ -41,31 +44,34 @@
 
 .footer-socials {
   display: flex;
-  gap: 2rem; 
+  gap: 2.5rem; 
 }
 
 .footer-socials a {
-  color: #cbd5e1;
-  font-size: 0.95rem;
+  color: #94a3b8;
+  font-size: 0.9rem;
   font-weight: 600;
   text-decoration: none;
-  transition: color 0.25s ease;
+  font-family: monospace, sans-serif;
+  transition: color 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+  position: relative;
 }
 
 .footer-socials a:hover {
-  color: #61dafb; /* Effetto azzurro stile React ad alto contrasto */
+  color: #ffffff; /* Sostituito l'azzurro con un bianco puro ad alto contrasto */
 }
 
 .footer-bottom {
   text-align: center;
   padding-top: 2rem;
-  font-size: 0.85rem;
-  color: #64748b;
+  font-size: 0.82rem;
+  color: #475569;
   font-weight: 500;
+  font-family: monospace, sans-serif;
 }
 
 /* ===========================================================
-   RESPONSIVE STEP 1 & 2: DESKTOP & TABLET ALIGNMENT (1200px & 768px)
+   RESPONSIVE STEP 1 & 2: LAPTOP & TABLET
    =========================================================== */
 
 @media (max-width: 1200px) {
@@ -77,23 +83,30 @@
 
 @media (max-width: 768px) {
   .footer-content {
-    flex-direction: column; /* Centra verticalmente gli elementi del footer */
+    flex-direction: column; 
     text-align: center;
-    gap: 1.5rem;
+    gap: 2rem;
+  }
+  
+  .footer-socials {
+    justify-content: center;
+    gap: 2rem;
   }
 }
 
 /* ===========================================================
-   RESPONSIVE STEP 3 & 4: MOBILE RESPONSIVE CLOSURE (480px & 320px)
+   RESPONSIVE STEP 3 & 4: MOBILE VIEWS
    =========================================================== */
 
 @media (max-width: 480px) {
   .footer-container {
-    padding: 3rem 16px 1.5rem 16px;
-    margin-top: 3rem;
+    padding: 4rem 16px 2rem 16px;
   }
+  
   .footer-socials {
     gap: 1.5rem;
+    flex-wrap: wrap;
+    justify-content: center;
   }
 }
 
@@ -102,6 +115,6 @@
     font-size: 1.1rem;
   }
   .footer-bottom {
-    font-size: 0.8rem;
+    font-size: 0.78rem;
   }
 }

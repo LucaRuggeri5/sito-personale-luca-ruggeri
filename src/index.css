@@ -13,11 +13,18 @@ html {
 }
 
 body {
-  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  font-family: monospace, sans-serif;
   background-color: var(--bg-color);
   color: var(--text-color);
   line-height: 1.6;
   overflow-x: hidden; /* Impedisce rigorosamente scroll orizzontali anomali su mobile */
+  
+  /* Sfondo Minimalismo Tecnico: Griglia geometrica discreta generata in puro CSS */
+  background-image: 
+    linear-gradient(var(--grid-color) 1px, transparent 1px),
+    linear-gradient(90deg, var(--grid-color) 1px, transparent 1px);
+  background-size: 40px 40px;
+  background-position: center top;
 }
 
 /* ===========================================================
@@ -46,11 +53,12 @@ img {
 @media (max-width: 480px) {
   body {
     font-size: 15px; /* Adattamento leggero del body text */
+    background-size: 30px 30px; /* Griglia leggermente più fitta su mobile */
   }
 }
 
 @media (max-width: 320px) {
   body {
-    font-size: 14px; /* Ottimizzazione per schermi microscopici tipo iPhone SE vecchio */
+    font-size: 14px; /* Ottimizzazione per schermi microscopici */
   }
 }

@@ -57,6 +57,10 @@ const Navbar = () => {
 
   return (
     <nav className="navbar-container">
+      {/* Sfondo tecnico e linea di decorazione geometrica */}
+      <div className="navbar-bg-grid"></div>
+      <div className="navbar-border-line"></div>
+
       {/* Logo / Nome - Riporta in cima pulito */}
       <div className="navbar-logo">
         <a 

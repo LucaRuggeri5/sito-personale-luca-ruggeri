@@ -1,4 +1,6 @@
-/* Hero.css */
+/* ===========================================================
+   CONTENITORE HERO PRINCIPALE
+   =========================================================== */
 
 .hero-container {
   display: flex;
@@ -10,16 +12,18 @@
   margin: 0 auto;
 }
 
-/* Wrapper principale che distribuisce testo e foto su PC */
 .hero-wrapper {
   display: flex;
   align-items: center;
   justify-content: space-between;
   width: 100%;
   gap: 40px;
-  /* Entrambi gli elementi entrano fluidamente all'avvio */
   animation: fadeInHero 1s cubic-bezier(0.4, 0, 0.2, 1);
 }
+
+/* ===========================================================
+   BLOCCO TESTI HERO (GERARCHIA VISIVA)
+   =========================================================== */
 
 .hero-content {
   flex: 1;
@@ -56,7 +60,10 @@
   color: var(--primary-color); 
 }
 
-/* BOTTONE HERO PRINCIPALE */
+/* ===========================================================
+   ELEMENTI INTERATTIVI / CTA BUTTON
+   =========================================================== */
+
 .btn-primary {
   display: inline-block;
   background-color: transparent;
@@ -77,7 +84,10 @@
   box-shadow: 0 10px 20px rgba(37, 99, 235, 0.15);
 }
 
-/* LATO IMMAGINE */
+/* ===========================================================
+   BLOCCO FOTO DI PROFILO
+   =========================================================== */
+
 .hero-image-container {
   flex: 1;
   display: flex;
@@ -87,27 +97,29 @@
 
 .hero-image-wrapper {
   position: relative;
-  width: clamp(280px, 30vw, 360px); /* Dimensione dinamica ed equilibrata */
+  width: clamp(280px, 30vw, 360px); 
   height: clamp(280px, 30vw, 360px);
-  border-radius: 24px; /* Angoli arrotondati coordinati con il design del portfolio */
+  border-radius: 24px; 
   overflow: hidden;
-  box-shadow: 0 20px 40px -15px rgba(15, 23, 42, 0.15); /* Ombra profonda e morbida */
+  box-shadow: 0 20px 40px -15px rgba(15, 23, 42, 0.15); 
   border: 1px solid #f1f5f9;
 }
 
 .hero-profile-img {
   width: 100%;
   height: 100%;
-  object-fit: cover; /* Assicura che la foto riempia il quadrato senza distorsioni */
+  object-fit: cover; 
   transition: transform 0.5s ease;
 }
 
-/* Micro-interazione amichevole: la foto zooma leggermente se ci passi sopra con il mouse */
 .hero-image-wrapper:hover .hero-profile-img {
   transform: scale(1.04);
 }
 
-/* Animazione di ingresso fluida aggiornata */
+/* ===========================================================
+   ANIMAZIONI LOCALI KEYFRAMES
+   =========================================================== */
+
 @keyframes fadeInHero {
   from {
     opacity: 0;
@@ -119,21 +131,35 @@
   }
 }
 
-/* MEDIA QUERIES PER IL FUTURE RESPONSIVE (Pre-configurato) */
-@media (max-width: 968px) {
+/* ===========================================================
+   RESPONSIVE STEP 1: DESKTOP COMPACT (max-width: 1200px)
+   =========================================================== */
+
+@media (max-width: 1200px) {
+  .hero-container {
+    padding-left: 5%;
+    padding-right: 5%;
+  }
+}
+
+/* ===========================================================
+   RESPONSIVE STEP 2: TABLET LAYOUT INVERSION (max-width: 768px)
+   =========================================================== */
+
+@media (max-width: 768px) {
   .hero-container {
     min-height: auto;
-    padding: 60px 5%;
+    padding: 50px 24px;
   }
 
   .hero-wrapper {
-    flex-direction: column-reverse; /* Sposta la foto in alto e il testo in basso su tablet/mobile */
+    flex-direction: column-reverse; /* Inversione: Immagine sopra, testi sotto */
     text-align: center;
     gap: 35px;
   }
 
   .hero-image-container {
-    justify-content: center; /* Centra la foto nello schermo */
+    justify-content: center; 
   }
 
   .hero-image-wrapper {
@@ -144,5 +170,37 @@
   .hero-description {
     margin-left: auto;
     margin-right: auto;
+  }
+}
+
+/* ===========================================================
+   RESPONSIVE STEP 3 & 4: SMARTPHONE ADVANCED (480px & 320px)
+   =========================================================== */
+
+@media (max-width: 480px) {
+  .hero-container {
+    padding: 40px 16px;
+  }
+  .hero-image-wrapper {
+    width: 220px;
+    height: 220px;
+    border-radius: 20px;
+  }
+  .hero-title {
+    letter-spacing: -1px;
+  }
+  .btn-primary {
+    width: 100%; /* Il pulsante si adatta a tutta la larghezza su mobile */
+    text-align: center;
+  }
+}
+
+@media (max-width: 320px) {
+  .hero-image-wrapper {
+    width: 180px;
+    height: 180px;
+  }
+  .hero-subtitle {
+    font-size: 1.3rem;
   }
 }

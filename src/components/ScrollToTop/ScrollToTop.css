@@ -1,3 +1,7 @@
+/* ===========================================================
+   STRUTTURA E POSIZIONAMENTO PULSANTE BACK-TO-TOP
+   =========================================================== */
+
 .scroll-to-top {
   position: fixed;
   bottom: 2rem;
@@ -16,10 +20,42 @@
   font-size: 1.5rem;
   font-weight: bold;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
   transition: all 0.3s ease;
 }
 
 .scroll-btn:hover {
   transform: scale(1.1);
   background-color: var(--accent-color);
+}
+
+/* ===========================================================
+   RESPONSIVE STEP PER DISPOSITIVI TOUCH (768px, 480px & 320px)
+   =========================================================== */
+
+@media (max-width: 768px) {
+  .scroll-btn:hover {
+    transform: none; /* Rimuove l'hovering di ingrandimento che sui dispositivi touch si incastra */
+  }
+}
+
+@media (max-width: 480px) {
+  .scroll-to-top {
+    bottom: 1.5rem;
+    right: 1.5rem; /* Avvicina il pulsante al bordo per non coprire i testi */
+  }
+  .scroll-btn {
+    width: 44px;
+    height: 44px; /* Dimensione ideale per il click del pollice senza ingombrare */
+    font-size: 1.3rem;
+  }
+}
+
+@media (max-width: 320px) {
+  .scroll-to-top {
+    bottom: 1rem;
+    right: 1rem;
+  }
 }

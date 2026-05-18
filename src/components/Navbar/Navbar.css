@@ -1,4 +1,6 @@
-/* Navbar.css */
+/* ===========================================================
+   CONTENITORE DELLA NAVBAR (STICKY)
+   =========================================================== */
 
 .navbar-container {
   display: flex;
@@ -14,7 +16,10 @@
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.02);
 }
 
-/* Trova la regola .navbar-logo a e assicurati che sia così per mantenere gli spazi */
+/* ===========================================================
+   BRANDING & BRAND-NOME DINAMICO
+   =========================================================== */
+
 .navbar-logo a {
   display: flex;
   align-items: center;
@@ -32,23 +37,24 @@
   object-fit: contain;
 }
 
-/* --- ANIMAZIONE DELLA SCRITTA NOME --- */
 .navbar-logo-text {
   opacity: 0;
   visibility: hidden;
-  transform: translateX(-10px) scale(0.95); /* Parte leggermente spostato a sinistra e più piccolo */
-  transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1); /* Transizione super fluida */
-  white-space: nowrap; /* Impedisce al testo di andare a capo durante l'animazione */
+  transform: translateX(-10px) scale(0.95);
+  transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+  white-space: nowrap;
 }
 
-/* Stato quando l'utente supera l'Hero dello schermo */
 .navbar-logo-text.visible {
   opacity: 1;
   visibility: visible;
-  transform: translateX(0) scale(1); /* Torna alla posizione e dimensione originaria */
+  transform: translateX(0) scale(1);
 }
 
-/* Wrapper che unisce link e CTA per controllarli in blocco su mobile */
+/* ===========================================================
+   DESKTOP MENU LINKS & ACTIONS
+   =========================================================== */
+
 .navbar-menu-wrapper {
   display: flex;
   align-items: center;
@@ -93,10 +99,12 @@
   box-shadow: 0 4px 12px rgba(37, 99, 235, 0.2);
 }
 
-/* --- STILIZZAZIONE HAMBURGER MENU IN PURO CSS --- */
+/* ===========================================================
+   PULSANTE HAMBURGER (PURO CSS)
+   =========================================================== */
 
 .hamburger-btn {
-  display: none; /* Nascosto su PC desktop */
+  display: none; 
   flex-direction: column;
   justify-content: space-between;
   width: 24px;
@@ -117,7 +125,6 @@
   transform-origin: left center;
 }
 
-/* ANIMAZIONE: Trasformazione delle 3 linee in una "X" quando è aperto */
 .hamburger-btn.open .hamburger-line:nth-child(1) {
   transform: rotate(45deg);
 }
@@ -131,9 +138,19 @@
   transform: rotate(-45deg);
 }
 
-/* -----------------------------------------------------------
-MEDIA QUERY PER DISPOSITIVI MOBILI E TABLET
------------------------------------------------------------ */
+/* ===========================================================
+   RESPONSIVE STEP 1: DESKTOP COMPACT (max-width: 1200px)
+   =========================================================== */
+
+@media (max-width: 1200px) {
+  .navbar-menu-wrapper {
+    gap: 2rem;
+  }
+}
+
+/* ===========================================================
+   RESPONSIVE STEP 2: TABLET / MOBILE MENU TOGGLE (max-width: 768px)
+   =========================================================== */
 
 @media (max-width: 768px) {
   .hamburger-btn {
@@ -152,7 +169,6 @@ MEDIA QUERY PER DISPOSITIVI MOBILI E TABLET
     gap: 2rem;
     padding: 2.5rem 0;
     box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.05);
-    
     opacity: 0;
     visibility: hidden;
     transform: translateY(-10px);
@@ -189,5 +205,28 @@ MEDIA QUERY PER DISPOSITIVI MOBILI E TABLET
   .cv-button {
     display: block; 
     padding: 0.8rem 0;
+  }
+}
+
+/* ===========================================================
+   RESPONSIVE STEP 3 & 4: SMARTPHONE COMFORT & NARROW (480px & 320px)
+   =========================================================== */
+
+@media (max-width: 480px) {
+  .navbar-container {
+    padding: 1rem 16px;
+  }
+  .navbar-logo a {
+    font-size: 1.2rem;
+  }
+}
+
+@media (max-width: 320px) {
+  .navbar-logo a {
+    gap: 0.5rem;
+  }
+  .navbar-logo-img {
+    width: 28px;
+    height: 28px;
   }
 }

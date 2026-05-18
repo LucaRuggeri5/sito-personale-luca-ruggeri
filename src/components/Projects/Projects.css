@@ -1,8 +1,10 @@
-/* Projects.css */
+/* ===========================================================
+   CONTENITORE GRIGLIA PROGETTI
+   =========================================================== */
 
 .projects-container {
   padding: 80px 5%;
-  max-width: 1200px; /* Ridotto leggermente per rendere le 2 card più compatte e proporzionate */
+  max-width: 1200px; 
   margin: 0 auto;
 }
 
@@ -15,12 +17,15 @@
   letter-spacing: -1px;
 }
 
-/* GRIGLIA REVISIONATA: Forzatura a 2 colonne per PC */
 .projects-grid {
   display: grid;
-  grid-template-columns: repeat(2, 1fr); /* Crea esattamente 2 colonne uguali su desktop */
-  gap: 40px; /* Aumentato leggermente il distacco per dare più respiro visivo alle card grandi */
+  grid-template-columns: repeat(2, 1fr); 
+  gap: 40px; 
 }
+
+/* ===========================================================
+   STRUTTURA E HOVER DELLA CARD PROGETTO
+   =========================================================== */
 
 .project-card {
   background: #ffffff;
@@ -39,10 +44,10 @@
   border-color: #cbd5e1;
 }
 
-/* L'immagine ora sfrutta al meglio la larghezza della card a 2 colonne */
+/* Contenitore Immagine del Progetto */
 .project-image {
   width: 100%;
-  height: 280px; /* Alzata leggermente per armonizzarsi con la larghezza maggiore delle card */
+  height: 280px; 
   background-color: #f8fafc;
   overflow: hidden;
   display: flex;
@@ -62,6 +67,10 @@
 .project-card:hover .project-image img {
   transform: scale(1.03);
 }
+
+/* ===========================================================
+   CONTENUTI INTERNI CARD & COMPONENTI SEMANTICI
+   =========================================================== */
 
 .project-card-content {
   padding: 24px;
@@ -88,6 +97,7 @@
   text-overflow: ellipsis;
 }
 
+/* Contenitore Tag Tecnologici */
 .project-tech {
   display: flex;
   flex-wrap: wrap;
@@ -105,6 +115,7 @@
   border: 1px solid #e2e8f0;
 }
 
+/* Link di Azione "Vedi Progetto" */
 .project-link {
   color: var(--primary-color);
   text-decoration: none;
@@ -123,6 +134,10 @@
 .project-link:hover span {
   transform: translateX(5px);
 }
+
+/* ===========================================================
+   STATI ASINCRONI (LOADING & PLACEHOLDERS)
+   =========================================================== */
 
 .loading {
   text-align: center;
@@ -144,12 +159,20 @@
   font-size: 0.9rem;
 }
 
-/* MEDIA QUERIES PER LA REATTIVITÀ DELLO SCHERMO */
+/* ===========================================================
+   RESPONSIVE STEP 1 & 2: LAPTOP & TABLET SWITCH (max-width: 1200px & 868px)
+   =========================================================== */
 
-/* Per tablet e schermi medio-piccoli (es. iPad o laptop piccoli): passiamo a 1 colonna per evitare card troppo strette */
+@media (max-width: 1200px) {
+  .projects-container {
+    padding-left: 5%;
+    padding-right: 5%;
+  }
+}
+
 @media (max-width: 868px) {
   .projects-grid {
-    grid-template-columns: 1fr;
+    grid-template-columns: 1fr; /* Switch completo a una colonna per preservare lo spazio */
     gap: 30px;
   }
   .project-image {
@@ -157,8 +180,37 @@
   }
 }
 
+/* ===========================================================
+   RESPONSIVE STEP 3 & 4: MOBILE VIEWS (480px & 320px)
+   =========================================================== */
+
 @media (max-width: 480px) {
+  .projects-container {
+    padding-top: 50px;
+    padding-bottom: 50px;
+  }
+  .projects-title {
+    margin-bottom: 35px;
+  }
   .project-image {
-    height: 180px;
+    height: 190px;
+    padding: 12px;
+  }
+  .project-card-content {
+    padding: 18px;
+  }
+}
+
+@media (max-width: 320px) {
+  .project-image {
+    height: 160px;
+  }
+  .project-card {
+    border-radius: 16px;
+  }
+  .project-description {
+    font-size: 0.9rem;
+    height: auto; /* Permette lo srotolamento completo se lo spazio orizzontale è ridotto */
+    max-height: 5.4em;
   }
 }

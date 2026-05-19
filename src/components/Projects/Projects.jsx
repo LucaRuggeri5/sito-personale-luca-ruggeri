@@ -11,7 +11,7 @@ const Projects = () => {
   const fetchProjects = async () => {
     try {
       setLoading(true);
-      const { data, error } = await supabase.from('projects').select('*');
+      const { data, error } = await supabase.schema('sito-personale-portfolio').from('projects').select('*');
       if (error) throw error;
       setDbProjects(data);
     } catch (error) {

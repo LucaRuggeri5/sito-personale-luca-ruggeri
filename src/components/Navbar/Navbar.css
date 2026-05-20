@@ -8,21 +8,11 @@
   align-items: center;
   padding: 1rem 5%;
   background-color: var(--navbar-bg);
-  
-  /* 1. Applica SOLO il filtro di sfocatura (compatibile con tutti i browser) */
-  -webkit-backdrop-filter: blur(12px);
-  backdrop-filter: blur(12px);
-  
+  backdrop-filter: blur(12px) cubic-bezier(0.4, 0, 0.2, 1);
   position: sticky;
   top: 0;
   z-index: 1000;
-  
-  /* 2. Gestisci l'animazione del background e del filtro qui nella transizione */
-  transition: 
-    background-color 0.3s cubic-bezier(0.4, 0, 0.2, 1), 
-    backdrop-filter 0.3s cubic-bezier(0.4, 0, 0.2, 1),
-    -webkit-backdrop-filter 0.3s cubic-bezier(0.4, 0, 0.2, 1),
-    border-color 0.3s ease;
+  transition: background-color 0.3s cubic-bezier(0.4, 0, 0.2, 1), border-color 0.3s ease;
 }
 
 /* Linea inferiore tecnica di precisione */

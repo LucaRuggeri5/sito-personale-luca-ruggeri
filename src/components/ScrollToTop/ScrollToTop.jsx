@@ -5,10 +5,7 @@ const ScrollToTop = () => {
   const [isVisible, setIsVisible] = useState(false);
 
   useEffect(() => {
-    // Forza lo scroll a zero assoluto all'avvio/refresh immediato
-    window.scrollTo(0, 0);
-
-    // Gestione pulita del reset anche in caso di ricaricamento asincrono pesante
+    // Gestione pulita del reset in modo asincrono per non bloccare il caricamento del CSS
     const handleResetScroll = () => {
       window.scrollTo(0, 0);
       if (window.location.hash) {
@@ -16,10 +13,15 @@ const ScrollToTop = () => {
       }
     };
 
+    // Usiamo un piccolo timeout asincrono per evitare il "layout forzato" durante l'evento load
+    const delayedReset = () => {
+      setTimeout(handleResetScroll, 0);
+    };
+
     if (document.readyState === 'complete') {
-      handleResetScroll();
+      delayedReset();
     } else {
-      window.addEventListener('load', handleResetScroll);
+      window.addEventListener('load', delayedReset);
     }
 
     // Listener per la visibilità del bottone
@@ -31,11 +33,11 @@ const ScrollToTop = () => {
       }
     };
 
-    window.addEventListener('scroll', toggleVisibility);
+    window.addEventListener('scroll', toggleVisibility, { passive: true });
 
     // Pulizia totale degli eventi per prevenire Memory Leak
     return () => {
-      window.removeEventListener('load', handleResetScroll);
+      window.removeEventListener('load', delayedReset);
       window.removeEventListener('scroll', toggleVisibility);
     };
   }, []);

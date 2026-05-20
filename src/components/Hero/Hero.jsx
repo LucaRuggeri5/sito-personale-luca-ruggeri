@@ -27,7 +27,6 @@ const Hero = () => {
 
       <div className="hero-wrapper">
         
-
         <div className="hero-content">
           <h1 className="hero-title">Luca Ruggeri</h1>
           <h2 className="hero-subtitle">Sviluppo interfacce web moderne</h2>
@@ -44,12 +43,12 @@ const Hero = () => {
           </div>
         </div>
 
-
         <div className="hero-image-container">
           <div className="hero-image-wrapper">
             {/* Elemento decorativo blueprint geometrico dietro la foto */}
             <div className="hero-image-blueprint" aria-hidden="true"></div>
-            <img src={profileImg} alt="Luca Ruggeri" className="hero-profile-img" />
+            {/* loading="eager" assicura che l'immagine in cima sia caricata subito senza spostare il layout */}
+            <img src={profileImg} alt="Luca Ruggeri" className="hero-profile-img" loading="eager" />
           </div>
         </div>
 

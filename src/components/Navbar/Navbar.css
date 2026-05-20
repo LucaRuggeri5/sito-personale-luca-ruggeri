@@ -8,7 +8,9 @@
   align-items: center;
   padding: 1rem 5%;
   background-color: var(--navbar-bg);
-  backdrop-filter: blur(12px) cubic-bezier(0.4, 0, 0.2, 1);
+  /* Aggiunto prefisso webkit e semplificato per compatibilità browser */
+  -webkit-backdrop-filter: blur(12px);
+  backdrop-filter: blur(12px);
   position: sticky;
   top: 0;
   z-index: 1000;

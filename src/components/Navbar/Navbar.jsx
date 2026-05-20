@@ -14,7 +14,7 @@ const Navbar = ({ isDarkMode, toggleTheme }) => {
   // Monitora lo scroll della pagina per capire quando mostrare il nome
   useEffect(() => {
     const handleScroll = () => {
-      // Peschiamo l'altezza dell'elemento Hero (o la sezione iniziale)
+      // Peschiamo l'elemento direttamente dentro l'evento di scroll per evitare reflow forzati all'avvio
       const heroElement = document.querySelector('.hero-container');
       
       if (heroElement) {
@@ -29,7 +29,7 @@ const Navbar = ({ isDarkMode, toggleTheme }) => {
     };
 
     // Ascolta l'evento di scroll del browser
-    window.addEventListener('scroll', handleScroll);
+    window.addEventListener('scroll', handleScroll, { passive: true });
     
     // Funzione di pulizia (Clean-up) per evitare memory leak
     return () => {

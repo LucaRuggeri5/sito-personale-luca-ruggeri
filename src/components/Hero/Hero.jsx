@@ -1,7 +1,7 @@
 import React from 'react';
 import './Hero.css';
 // Importazione della foto quadrata dagli assets
-import profileImg from '../../assets/luca_ruggeri.jpg';
+import profileImg from '../../assets/luca-ruggeri-img.jpg';
 
 const Hero = () => {
   const handleScrollToProjects = (e) => {

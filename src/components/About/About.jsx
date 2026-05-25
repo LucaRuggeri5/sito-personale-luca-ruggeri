@@ -6,6 +6,7 @@ import htmlIcon from '../../assets/icons/html.svg';
 import cssIcon from '../../assets/icons/css.svg';
 import jsIcon from '../../assets/icons/javascript.svg';
 import reactIcon from '../../assets/icons/react.svg';
+import githubIcon from '../../assets/icons/github.svg'
 import gitIcon from '../../assets/icons/git.svg';
 import viteIcon from '../../assets/icons/vite.svg';
 import nodeIcon from '../../assets/icons/nodejs.svg';
@@ -19,6 +20,7 @@ const About = () => {
     { name: "CSS3", icon: cssIcon },
     { name: "JavaScript", icon: jsIcon },
     { name: "React", icon: reactIcon },
+    { name: "GitHub", icon: githubIcon },
     { name: "Git", icon: gitIcon },
     { name: "Vite", icon: viteIcon },
     { name: "Node.js", icon: nodeIcon },

@@ -26,11 +26,11 @@ const Projects = () => {
   }, []);
 
   const placeholders = [
-    { id: 'p1', title: "Progetto Esempio 1", description: "Descrizione breve per testare l'allineamento della card.", tech: ["React", "Tailwind"], image_url: "" },
-    { id: 'p2', title: "Progetto Esempio 2", description: "Descrizione un po' più lunga per vedere come si comporta il testo quando occupa più righe all'interno della griglia.", tech: ["JavaScript", "Node.js"], image_url: "" },
-    { id: 'p3', title: "Progetto Esempio 3", description: "Test layout.", tech: ["HTML", "CSS"], image_url: "" },
-    { id: 'p4', title: "Progetto Esempio 4", description: "Test layout.", tech: ["Vite"], image_url: "" },
-    { id: 'p5', title: "Progetto Esempio 5", description: "Test layout.", tech: ["React"], image_url: "" },
+    { id: 'p1', title: "Progetto in arrivo", description: "Test layout.", tech: ["HTML"], image_url: "" },
+    // { id: 'p2', title: "Progetto in arrivo", description: "Test layout.", tech: ["HTML"], image_url: "" },
+    // { id: 'p3', title: "Progetto in arrivo", description: "Test layout.", tech: ["HTML"], image_url: "" },
+    // { id: 'p4', title: "Progetto in arrivo", description: "Test layout.", tech: ["HTML"], image_url: "" },
+    // { id: 'p5', title: "Progetto in arrivo", description: "Test layout.", tech: ["HTML"], image_url: "" },
   ];
 
   // Uniamo i progetti reali con i placeholder e limitiamo a un massimo di 6 totali
@@ -62,7 +62,7 @@ const Projects = () => {
                 <div className="image-placeholder">
                   {/* Micro elemento lineare per lo stile tecnico */}
                   <div className="placeholder-border-decor" aria-hidden="true"></div>
-                  <span>Screenshot in arrivo</span>
+                  <span>Sito in arrivo</span>
                 </div>
               )}
             </div>

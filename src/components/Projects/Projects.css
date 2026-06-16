@@ -200,7 +200,7 @@
 }
 
 /* ===========================================================
-   STATI ASINCRONI & SCHEMI DIAGRAMMA DI LOGS
+   STATI ASINCRONI
    =========================================================== */
 
 .loading {
@@ -210,35 +210,6 @@
   padding: 100px 0;
   font-family: monospace, sans-serif;
   transition: color 0.3s ease;
-}
-
-.image-placeholder {
-  width: 100%;
-  height: 100%;
-  background: var(--bg-color);
-  border-radius: 4px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: var(--text-muted);
-  font-weight: 600;
-  font-size: 0.82rem;
-  font-family: monospace, sans-serif;
-  text-transform: uppercase;
-  letter-spacing: 0.5px;
-  border: 1px dashed var(--border-color);
-  position: relative;
-  transition: background-color 0.3s ease, border-color 0.3s ease, color 0.3s ease;
-}
-
-/* Sottile decorazione blueprint per gli screenshot non pronti */
-.placeholder-border-decor {
-  position: absolute;
-  inset: 4px;
-  border: 1px solid var(--border-color);
-  pointer-events: none;
-  opacity: 0.4;
-  transition: border-color 0.3s ease;
 }
 
 @keyframes slideInUp {

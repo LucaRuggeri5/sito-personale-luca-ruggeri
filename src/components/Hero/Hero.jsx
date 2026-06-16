@@ -29,7 +29,7 @@ const Hero = () => {
         
         <div className="hero-content">
           <h1 className="hero-title">Luca Ruggeri</h1>
-          <h2 className="hero-subtitle">Sviluppo interfacce web moderne</h2>
+          <h2 className="hero-subtitle">Frontend Web Developer</h2>
 
           <p className="hero-description">
             Sono un aspirante <strong>Web Developer specializzato in React</strong>.

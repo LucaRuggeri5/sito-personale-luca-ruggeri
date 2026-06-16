@@ -25,19 +25,8 @@ const Projects = () => {
     fetchProjects();
   }, []);
 
-  const placeholders = [
-    { id: 'p1', title: "Progetto in arrivo", description: "Test layout.", tech: ["HTML"], image_url: "" },
-    // { id: 'p2', title: "Progetto in arrivo", description: "Test layout.", tech: ["HTML"], image_url: "" },
-    // { id: 'p3', title: "Progetto in arrivo", description: "Test layout.", tech: ["HTML"], image_url: "" },
-    // { id: 'p4', title: "Progetto in arrivo", description: "Test layout.", tech: ["HTML"], image_url: "" },
-    // { id: 'p5', title: "Progetto in arrivo", description: "Test layout.", tech: ["HTML"], image_url: "" },
-  ];
-
-  // Uniamo i progetti reali con i placeholder e limitiamo a un massimo di 6 totali
-  const allProjects = [...dbProjects, ...placeholders].slice(0, 6);
-
   // Calcoliamo i progetti da renderizzare: se è espanso li mostriamo tutti, altrimenti solo i primi 2
-  const visibleProjects = isExpanded ? allProjects : allProjects.slice(0, 2);
+  const visibleProjects = isExpanded ? dbProjects : dbProjects.slice(0, 2);
 
   if (loading) {
     return (
@@ -53,18 +42,17 @@ const Projects = () => {
 
       <div className="projects-grid">
         {visibleProjects.map((project) => (
-          <div key={project.id} className="project-card">
+          /* TRASFORMATO IN TAG "A" PER RENDERE TUTTA LA CARD CLICCABILE */
+          <a 
+            key={project.id} 
+            href={project.link || "#"} 
+            target="_blank" 
+            rel="noreferrer" 
+            className="project-card"
+          >
             
             <div className="project-image">
-              {project.image_url ? (
-                <img src={project.image_url} alt={project.title} />
-              ) : (
-                <div className="image-placeholder">
-                  {/* Micro elemento lineare per lo stile tecnico */}
-                  <div className="placeholder-border-decor" aria-hidden="true"></div>
-                  <span>Sito in arrivo</span>
-                </div>
-              )}
+              <img src={project.image_url} alt={project.title} />
             </div>
 
             <div className="project-card-content">
@@ -79,17 +67,18 @@ const Projects = () => {
                 </div>
               </div>
 
-              <a href={project.link || "#"} target="_blank" rel="noreferrer" className="project-link">
+              {/* ORA È UN SEMPLICE DIV ESTETICO POICHÉ IL LINK AVVOLGE GIÀ TUTTO */}
+              <div className="project-link">
                 Vedi progetto <span>→</span>
-              </a>
+              </div>
             </div>
 
-          </div>
+          </a>
         ))}
       </div>
 
-      {/* Il pulsante appare solo se ci sono effettivamente più di 2 progetti totali */}
-      {allProjects.length > 2 && (
+      {/* Il pulsante appare solo se ci sono effettivamente più di 2 progetti totali nel database */}
+      {dbProjects.length > 2 && (
         <div className="projects-action-wrapper">
           <button 
             className={`btn-toggle-projects ${isExpanded ? 'active' : ''}`}

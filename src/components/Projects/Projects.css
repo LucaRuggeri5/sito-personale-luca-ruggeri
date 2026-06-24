@@ -104,7 +104,6 @@
   font-size: 0.92rem;
   line-height: 1.6;
   margin-bottom: 20px;
-  height: 4.8em;
   overflow: hidden;
   text-overflow: ellipsis;
   transition: color 0.3s ease;
@@ -283,6 +282,5 @@
   .project-description {
     font-size: 0.88rem;
     height: auto; 
-    max-height: 5.4em;
   }
 }

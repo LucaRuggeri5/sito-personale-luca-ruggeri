@@ -32,8 +32,7 @@ const Hero = () => {
           <h2 className="hero-subtitle">Frontend Web Developer</h2>
 
           <p className="hero-description">
-            Sono un aspirante <strong>Web Developer specializzato in React</strong>.
-            Mi piace costruire applicazioni web che siano semplici, veloci e accessibili a tutti.
+            <strong>Sviluppatore Web specializzato in React.</strong> Realizzo applicazioni web intuitive, performanti e accessibili, trasformando requisiti complessi in interfacce fluide e incentrate sull'utente.
           </p>
 
           <div className="hero-buttons">

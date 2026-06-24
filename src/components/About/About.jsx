@@ -39,13 +39,10 @@ const About = () => {
         <div className="about-text">
           <h2 className="section-title">Chi Sono</h2>
           <p>
-            Ciao! Sono Luca, un appassionato sviluppatore web con una forte curiosità per tutto ciò che riguarda il mondo digitale. 
-            Ho iniziato il mio percorso concentrandomi sul frontend, in particolare su <strong>React</strong>, perché amo vedere le mie idee prendere vita nel browser.
+            Ciao, sono Luca. Ho scelto di specializzarmi nello sviluppo frontend <strong>(in particolare con React)</strong> spinto dal desiderio di unire logica di programmazione e impatto visivo. Per me, lo sviluppo web non è solo scrittura di codice, ma il mezzo per dare vita a soluzioni interattive concrete ed efficienti.
           </p>
           <p>
-            Il mio obiettivo è scrivere codice pulito, scalabile e facile da mantenere, 
-            senza mai dimenticare l'importance dell'esperienza utente (UX). 
-            Quando non sono davanti sullo schermo, mi piace seguire il calcio e tenermi aggiornato sulle ultime tecnologie.
+            Il mio approccio si basa sulla scrittura di codice pulito, scalabile e documentato, mantenendo sempre <strong>l'esperienza utente (UX) al centro di ogni decisione architetturale.</strong> Quando stacco dallo schermo, mi piace ricaricare le energie seguendo il calcio e restare sintonizzato sulle ultime novità del panorama tech.
           </p>
         </div>
 
@@ -53,7 +50,7 @@ const About = () => {
           {/* Micro-cornice geometrica interna decorativa */}
           <div className="skills-blueprint-frame" aria-hidden="true"></div>
           
-          <h3>Le mie Skill</h3>
+          <h3>Le mie Skills</h3>
           <ul className="skills-list">
             {skills.map((skill, index) => (
               <li key={index} className="skill-item">
